@@ -1,16 +1,18 @@
 import { Routes } from '@angular/router';
-import { DashboardComponent } from './components/main-page/dashboard/dashboard.component';
-import { ProfileComponent } from './components/main-page/profile/profile.component';
-import { LoginComponent } from './components/auth/login/login.component';
+import { DashboardComponent } from './layout/main-page/dashboard/dashboard.component';
+import { ProfileComponent } from './layout/main-page/profile/profile.component';
+import { LoginComponent } from './layout/auth/login/login.component';
 import { AuthGuard } from './core/guards/authguard.guard';
 import { AuthLayoutComponent } from './pages/auth-layout/auth-layout.component';
-import { RegisterComponent } from './components/auth/register/register.component';
+import { RegisterComponent } from './layout/auth/register/register.component';
 import { MainPageLayoutComponent } from './pages/main-page-layout/main-page-layout.component';
-import {HomeComponent} from './components/main-page/home/home.component';
-import {ResourcesComponent} from './components/main-page/resources/resources.component';
-import {FormalizationComponent} from './components/main-page/formalization/formalization.component';
-import {SupportComponent} from './components/main-page/support/support.component';
-import {OpportunitiesComponent} from './components/main-page/opportunities/opportunities.component';
+import {HomeComponent} from './layout/main-page/home/home.component';
+import {ResourcesComponent} from './layout/main-page/resources/resources.component';
+import {FormalizationComponent} from './layout/main-page/formalization/formalization.component';
+import {SupportComponent} from './layout/main-page/support/support.component';
+import {OpportunitiesComponent} from './layout/main-page/opportunities/opportunities.component';
+import {ProcedureComponent} from './components/main-page/formalization/procedure/procedure.component';
+import {ProcedureFormsComponent} from './components/main-page/formalization/procedure-forms/procedure-forms.component';
 
 export const appRoutes: Routes = [
   {
@@ -30,6 +32,8 @@ export const appRoutes: Routes = [
       { path: 'home', component: HomeComponent },
       { path: 'dashboard', component: DashboardComponent },
       { path: 'formalization', component: FormalizationComponent },
+      { path: 'formalization/procedure', component: ProcedureComponent },
+      { path: 'formalization/procedure-forms', component: ProcedureFormsComponent },
       { path: 'resources', component: ResourcesComponent },
       { path: 'opportunities', component: OpportunitiesComponent },
       { path: 'profile', component: ProfileComponent },

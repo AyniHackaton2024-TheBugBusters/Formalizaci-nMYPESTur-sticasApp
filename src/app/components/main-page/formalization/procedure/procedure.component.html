@@ -1,0 +1,18 @@
+<!-- tramites-en-proceso.component.html -->
+<div class="bg-white shadow-md rounded-lg p-6">
+  <h2 class="text-xl font-semibold mb-4">Trámites en Proceso</h2>
+  <div *ngIf="tramites.length > 0; else noTramites">
+    <ul class="space-y-3">
+      <li *ngFor="let tramite of tramites" class="p-4 border rounded-md">
+        <h3 class="text-lg font-semibold">{{ tramite.nombre }}</h3>
+        <p>Estado: {{ tramite.estado }}</p>
+        <p>Plazo: {{ tramite.plazo }}</p>
+        <p *ngIf="tramite.documentosAdicionales">Documentos Adicionales: {{ tramite.documentosAdicionales }}</p>
+      </li>
+    </ul>
+  </div>
+  <ng-template #noTramites>
+    <p>Aún no se inicia el trámite.</p>
+    <button class="mt-4 px-4 py-2 bg-blue-600 text-white rounded" (click)="startNewProcedure()">Iniciar Trámite</button>
+  </ng-template>
+</div>
