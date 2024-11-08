@@ -9,7 +9,7 @@ export class AuthGuard implements CanActivate {
 
   canActivate(): boolean {
     // Lógica de autenticación simulada
-    const isAuthenticated = false; // Cambia esto según tu lógica
+    const isAuthenticated = true; // Cambia esto según tu lógica
 
     if (!isAuthenticated) {
       this.router.navigate(['/login']);
