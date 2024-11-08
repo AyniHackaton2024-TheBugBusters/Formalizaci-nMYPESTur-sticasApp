@@ -1,0 +1,44 @@
+<div class="flex flex-col lg:flex-row gap-4 p-4">
+  <!-- Columna Izquierda -->
+  <div class="flex-1 space-y-4">
+    <!-- Card de Información del Perfil Empresarial -->
+    <mat-card class="p-4 shadow-md">
+      <h2 class="text-xl font-bold mb-2">Perfil Empresarial</h2>
+      <div class="text-gray-700 space-y-1">
+        <p><strong>Nombre:</strong> Empresa Turística S.A.C.</p>
+        <p><strong>RUC:</strong> 12345678901</p>
+        <p><strong>Representante:</strong> Juan Pérez</p>
+        <p><strong>Dirección:</strong> Lima, Perú</p>
+        <p><strong>Contacto:</strong> empresa&#64;gmail.com</p>
+        <mat-progress-bar mode="determinate" value="100" class="mt-2"></mat-progress-bar>
+        <button mat-button color="primary" class="mt-4">Editar Información</button>
+      </div>
+    </mat-card>
+
+    <!-- Card para Documentos y Licencias -->
+    <mat-card class="p-4 shadow-md">
+      <h2 class="text-xl font-bold mb-2">Documentos y Licencias</h2>
+      <p class="text-gray-700">Descarga aquí tus licencias y documentos oficiales una vez formalizado.</p>
+      <button mat-stroked-button color="accent" class="mt-4" [disabled]="!formalizado">Descargar Licencia</button>
+    </mat-card>
+  </div>
+
+  <!-- Columna Derecha -->
+  <div class="w-full lg:w-1/3 space-y-4">
+    <!-- Card de Validación de Identidad -->
+    <mat-card class="p-4 shadow-md">
+      <h2 class="text-xl font-bold mb-2">Validación de Identidad</h2>
+      <p class="text-gray-700">Valida tu identidad para poder continuar con el proceso de formalización y habilitar la firma digital.</p>
+      <button mat-raised-button color="primary" class="mt-4">Validar con RENIEC</button>
+      <p class="mt-2 text-sm text-gray-500">Estado: <span [ngClass]="validado ? 'text-green-500' : 'text-red-500'">{{ validado ? 'Cuenta Validada' : 'Pendiente de Verificación' }}</span></p>
+    </mat-card>
+
+    <!-- Card de Firma Digital -->
+    <mat-card *ngIf="validado" class="p-4 shadow-md">
+      <h2 class="text-xl font-bold mb-2">Firma Digital</h2>
+      <p class="text-gray-700">Sube tu firma para que pueda ser utilizada en los documentos necesarios.</p>
+      <input type="file" accept="image/*" class="mt-4" (change)="uploadFirma($event)" />
+      <button mat-button color="primary" class="mt-4" (click)="guardarFirma()">Guardar Firma</button>
+    </mat-card>
+  </div>
+</div>

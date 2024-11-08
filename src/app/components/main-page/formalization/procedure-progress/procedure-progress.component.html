@@ -1,0 +1,15 @@
+<!-- dashboard-progreso.component.html -->
+<div class="bg-white shadow-md rounded-lg p-6 text-center">
+  <h2 class="text-xl font-semibold mb-4">Progreso del Trámite</h2>
+  <div class="relative w-32 h-32 mx-auto">
+    <mat-progress-spinner
+      mode="determinate"
+      [value]="progreso"
+      diameter="128"
+      color="primary"
+      class="text-blue-600"
+    ></mat-progress-spinner>
+    <span class="absolute inset-0 flex items-center justify-center text-2xl font-bold">{{ progreso }}%</span>
+  </div>
+  <p class="mt-2">{{ estadoTramite }}</p>
+</div>

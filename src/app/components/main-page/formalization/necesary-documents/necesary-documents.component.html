@@ -1,0 +1,14 @@
+<!-- documentos-necesarios.component.html -->
+<div class="bg-white shadow-md rounded-lg p-6">
+  <h2 class="text-xl font-semibold mb-4">Documentos Necesarios</h2>
+  <ul class="space-y-3">
+    <li *ngFor="let doc of documentos" class="flex items-center justify-between">
+      <span>{{ doc.nombre }}</span>
+      <a [href]="doc.enlaceDescarga" target="_blank" class="text-blue-600 underline">Descargar Plantilla</a>
+    </li>
+  </ul>
+  <div *ngIf="!isIdentityValidated" class="mt-4 p-4 bg-red-100 text-red-700 rounded">
+    <p>Es necesario validar tu identidad para iniciar el proceso.</p>
+    <a routerLink="/home" class="text-blue-600 underline">Ir a validar identidad</a>
+  </div>
+</div>

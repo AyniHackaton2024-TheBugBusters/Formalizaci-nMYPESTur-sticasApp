@@ -1,0 +1,34 @@
+<div class="bg-white shadow-md rounded-lg p-6">
+  <h2 class="text-xl font-semibold mb-4">Iniciar Trámite</h2>
+  <div *ngIf="currentStep === 0">
+    <form [formGroup]="step1Form">
+      <h3 class="font-semibold text-lg">Paso 1: Datos de la Empresa</h3>
+      <input formControlName="companyName" placeholder="Nombre de la empresa" class="mt-2 p-2 border rounded w-full" />
+      <div *ngIf="step1Form.get('companyName')?.invalid && step1Form.get('companyName')?.touched" class="text-red-500">
+        El nombre de la empresa es obligatorio.
+      </div>
+    </form>
+  </div>
+  <div *ngIf="currentStep === 1">
+    <form [formGroup]="step2Form">
+      <h3 class="font-semibold text-lg">Paso 2: Documentación</h3>
+      <input formControlName="rucNumber" placeholder="Número de RUC" class="mt-2 p-2 border rounded w-full" />
+      <div *ngIf="step2Form.get('rucNumber')?.invalid && step2Form.get('rucNumber')?.touched" class="text-red-500">
+        El número de RUC es obligatorio.
+      </div>
+    </form>
+  </div>
+  <div *ngIf="currentStep === 2">
+    <form [formGroup]="step3Form">
+      <h3 class="font-semibold text-lg">Paso 3: Contacto</h3>
+      <input formControlName="email" placeholder="Correo Electrónico" class="mt-2 p-2 border rounded w-full" />
+      <div *ngIf="step3Form.get('email')?.invalid && step3Form.get('email')?.touched" class="text-red-500">
+        El correo electrónico es obligatorio y debe ser válido.
+      </div>
+    </form>
+  </div>
+  <div class="flex justify-between mt-4">
+    <button (click)="previousStep()" [disabled]="currentStep === 0" class="bg-gray-500 text-white px-4 py-2 rounded">Anterior</button>
+    <button (click)="nextStep()" class="bg-blue-500 text-white px-4 py-2 rounded">Siguiente</button>
+  </div>
+</div>
