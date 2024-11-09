@@ -22,5 +22,11 @@ import {NgIf} from '@angular/common';
   styleUrl: './formalization.component.css'
 })
 export class FormalizationComponent {
-  tramites: Tramite[] = [];
+  tramites: Tramite[] = [
+    new Tramite(
+      'Registro de la empresa en la SUNAT',
+      'Inscripción de la empresa en el Registro Único de Contribuyentes (RUC) y obtención del comprobante de inscripción.',
+      'https://www.sunat.gob.pe/'
+    ),
+  ];
 }
