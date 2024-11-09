@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import {FormsModule} from '@angular/forms';
 import {MatFormField, MatLabel} from '@angular/material/form-field';
 import {MatCard, MatCardContent} from '@angular/material/card';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -19,5 +20,9 @@ import {MatCard, MatCardContent} from '@angular/material/card';
 export class HomeComponent {
   welcomeMessage: string | undefined;
   userName: string | undefined;
+  constructor(private router: Router) {}
 
+  navigateToFormalization() {
+    this.router.navigate(['/formalization']);
+  }
 }

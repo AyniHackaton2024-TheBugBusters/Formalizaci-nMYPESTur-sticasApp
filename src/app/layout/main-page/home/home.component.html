@@ -5,7 +5,7 @@
         <img src="https://i.imgur.com/m57YJuf.png" alt="Turismo local" class="w-full h-full object-cover">
       </div>
       <div class="p-8 md:w-1/2">
-        <div class="uppercase tracking-wide text-sm text-green-500 font-semibold mb-1">Creciturismo</div>
+        <div class="uppercase tracking-wide text-sm text-red-500 font-semibold mb-1">Creciturismo</div>
         <h1 class="text-3xl font-bold text-gray-900 mb-2">Bienvenido a Creciturismo</h1>
         <p class="mt-2 text-gray-600">Estamos aquí para ayudarte a hacer crecer y formalizar tu negocio turístico.</p>
 
@@ -13,25 +13,25 @@
           <h2 class="text-xl font-semibold text-gray-800 mb-2">Tu Panel de Control</h2>
           <ul class="space-y-2">
             <li class="flex items-center">
-              <svg class="h-5 w-5 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <svg class="h-5 w-5 text-red-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
               </svg>
               Guía de Formalización
             </li>
             <li class="flex items-center">
-              <svg class="h-5 w-5 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <svg class="h-5 w-5 text-red-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
               </svg>
               Centro de Capacitación
             </li>
             <li class="flex items-center">
-              <svg class="h-5 w-5 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <svg class="h-5 w-5 text-red-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
               </svg>
               Directorio de Servicios
             </li>
             <li class="flex items-center">
-              <svg class="h-5 w-5 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <svg class="h-5 w-5 text-red-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
               </svg>
               Asesoría Personalizada
@@ -40,8 +40,8 @@
         </div>
 
         <div class="mt-6">
-          <button class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded-full transition duration-300 transform hover:scale-105">
-            Explorar Servicios
+          <button (click)="navigateToFormalization()" class="bg-red-500 hover:bg-reg-600 text-white font-bold py-2 px-4 rounded-full transition duration-300 transform hover:scale-105">
+            Empezar formalización
           </button>
         </div>
       </div>

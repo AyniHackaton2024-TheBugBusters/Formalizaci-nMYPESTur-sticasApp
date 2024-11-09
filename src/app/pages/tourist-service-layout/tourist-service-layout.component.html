@@ -1,7 +1,15 @@
-<div class="container mx-auto p-6">
-  <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-    <div *ngFor="let service of services">
-      <app-tourist-service-card [service]="service"></app-tourist-service-card>
+<div class="bg-gradient-to-b from-pink-200 via-purple-200 to-blue-200 min-h-screen py-10">
+  <div class="container mx-auto p-6">
+    <!-- Título principal -->
+    <h1 class="text-5xl font-extrabold text-center text-purple-900 mb-8">
+      Explora los servicios brindados por nuestras MYPES formalizadas
+    </h1>
+
+    <!-- Contenedor de tarjetas con ajuste de columnas -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 pt-5">
+      <div *ngFor="let service of services" class="transform hover:scale-105 transition-transform duration-200 shadow-lg hover:shadow-2xl rounded-lg bg-white">
+        <app-tourist-service-card [service]="service"></app-tourist-service-card>
+      </div>
     </div>
   </div>
 </div>

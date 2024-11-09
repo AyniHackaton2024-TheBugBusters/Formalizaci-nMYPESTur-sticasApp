@@ -1,31 +1,32 @@
 <!-- src/app/layout/main-page/sidebar/sidebar.component.html -->
 <mat-nav-list class="sidebar w-60 h-full bg-red-400 text-white">
-<div class="flex flex-col justify-between h-full">
-  <div >
-    <a mat-list-item routerLink="/home" routerLinkActive="active" class="hover:bg-red-200">
-      Inicio
-    </a>
-    <a mat-list-item routerLink="/formalization" routerLinkActive="active" class="hover:bg-red-200">
-      Mi formalización
-    </a>
-    <a mat-list-item routerLink="/resources" routerLinkActive="active" class="hover:bg-red-200">
-      Capacitaciones y recursos
-    </a>
-    <a mat-list-item routerLink="/opportunities" routerLinkActive="active" class="hover:bg-red-200">
-      Oportunidades de negocio
-    </a>
-    <a mat-list-item routerLink="/profile" routerLinkActive="active" class="hover:bg-red-200">
-      Perfil empresarial
-    </a>
-    <a mat-list-item routerLink="/service" routerLinkActive="active" class="hover:bg-red-200">
-      Crear servicio
-    </a>
-    <a mat-list-item routerLink="/support" routerLinkActive="active" class="hover:bg-red-200">
-      Soporte
-    </a>
+  <div class="flex flex-col justify-between h-full">
+    <div>
+      <a mat-list-item routerLink="/home" routerLinkActive="active" class="hover:bg-red-200">
+        Inicio
+      </a>
+      <a mat-list-item routerLink="/formalization" routerLinkActive="active" class="hover:bg-red-200">
+        Mi formalización
+      </a>
+      <a mat-list-item routerLink="/resources" routerLinkActive="active" class="hover:bg-red-200">
+        Capacitaciones y recursos
+      </a>
+      <a mat-list-item routerLink="/opportunities" routerLinkActive="active" class="hover:bg-red-200">
+        Oportunidades de negocio
+      </a>
+      <a mat-list-item routerLink="/profile" routerLinkActive="active" class="hover:bg-red-200">
+        Perfil empresarial
+      </a>
+      <a mat-list-item routerLink="/service" routerLinkActive="active" class="hover:bg-red-200">
+        Crear servicio
+      </a>
+      <a mat-list-item routerLink="/support" routerLinkActive="active" class="hover:bg-red-200">
+        Soporte
+      </a>
+    </div>
+    <div>
+      <img src="./assets/mincetur.jpg" alt="Marca del Ministerio de Comercio Exterior y Turismo">
+      <button mat-button (click)="logout()" class="mt-4 bg-red-600 text-white w-full">Cerrar sesión</button>
+    </div>
   </div>
-  <div >
-    <img src="./assets/mincetur.jpg" alt="Marca del Ministerio de Comercio Exterior y Turismo">
-  </div>
-</div>
 </mat-nav-list>

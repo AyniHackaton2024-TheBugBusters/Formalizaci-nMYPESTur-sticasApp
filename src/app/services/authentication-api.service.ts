@@ -48,6 +48,8 @@ export class AuthenticationApiService extends BaseService<User> {
           email: response.email
         };
         localStorage.setItem('userData', JSON.stringify(userData));
+        localStorage.setItem('user_id', response.userId);
+        localStorage.setItem('token', response.token);
         this.authStatusSubject.next(true);
       }));
   }
