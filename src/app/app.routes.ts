@@ -13,6 +13,7 @@ import {SupportComponent} from './layout/main-page/support/support.component';
 import {OpportunitiesComponent} from './layout/main-page/opportunities/opportunities.component';
 import {ProcedureComponent} from './components/main-page/formalization/procedure/procedure.component';
 import {ProcedureFormsComponent} from './components/main-page/formalization/procedure-forms/procedure-forms.component';
+import {CreateServiceComponent} from './layout/main-page/create-service/create-service.component';
 
 export const appRoutes: Routes = [
   {
@@ -37,6 +38,7 @@ export const appRoutes: Routes = [
       { path: 'resources', component: ResourcesComponent },
       { path: 'opportunities', component: OpportunitiesComponent },
       { path: 'profile', component: ProfileComponent },
+      { path: 'service', component: CreateServiceComponent },
       { path: 'support', component: SupportComponent },
       { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
     ],
