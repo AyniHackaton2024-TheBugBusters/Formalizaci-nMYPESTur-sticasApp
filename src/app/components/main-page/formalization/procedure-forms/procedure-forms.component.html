@@ -146,13 +146,51 @@
       <div *ngFor="let option of equipamiento">
         <mat-checkbox
           [value]="option.value"
-          (change)="onCheckBoxChangeTurismo($event)">
+          (change)="onCheckBoxChangeEquipamiento($event)">
           {{ option.viewValue }}
         </mat-checkbox>
       </div>
-      <div *ngIf="multiboxSeleccionTurismo.invalid && multiboxSeleccionTurismo.touched" class="text-red-500">
+      <div *ngIf="multiboxSeleccionEquipamiento.invalid && multiboxSeleccionEquipamiento.touched" class="text-red-500">
         Seleccionar al menos una opción es obligatorio.
       </div>
+      <br>
+      <h4 class="font-semibold text-lg">Personal calificado (1) : </h4>
+      <div *ngFor="let option of personal_calificado">
+        <mat-checkbox
+          [value]="option.value"
+          (change)="onCheckBoxChangePersonal($event)">
+          {{ option.viewValue }}
+        </mat-checkbox>
+      </div>
+      <input formControlName="personalCalificado" placeholder="Total personal calificado" class="mt-2 p-2 border rounded w-full" />
+      <div *ngIf="multiboxSeleccionPersonal.invalid && multiboxSeleccionPersonal.touched" class="text-red-500">
+        Seleccionar al menos una opción es obligatorio.
+      </div>
+    </form>
+  </div>
+
+  <div *ngIf="currentStep === 3">
+    <form [formGroup]="step4Form">
+      <h3 class="font-semibold text-lg">IV. CONDICIONES MÍNIMAS PARA LA PRESTACIÓN DEL SERVICIO A TRAVÉS DE CANALES DIGITALES (ARTÍCULO 22 DEL
+        REGLAMENTO) (1)
+      </h3>
+
+      <!-- Primera Sección de Checkboxes -->
+      <h4>{{ task().name }}</h4>
+      <mat-checkbox
+        [checked]="task().completed"
+        [indeterminate]="personalCalificadoPartiallyComplete()"
+        (change)="updateGestor($event.checked)">
+        {{ task().name }}
+      </mat-checkbox>
+      <div *ngFor="let subtask of task().subtasks; let i = index" class="ml-4">
+        <mat-checkbox
+          [checked]="subtask.completed"
+          (change)="updateGestor($event.checked, i)">
+          {{ subtask.name }}
+        </mat-checkbox>
+      </div>
+
     </form>
   </div>
 

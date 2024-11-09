@@ -38,15 +38,62 @@ export class ProcedureFormsComponent {
   step1Form: FormGroup;
   step2Form: FormGroup;
   step3Form: FormGroup;
+  step4Form: FormGroup;
+  step5Form: FormGroup;
+  step6Form: FormGroup;
+  step7Form: FormGroup;
+
   currentStep: number = 0;
+  personal_calificado=[
+    {value:'perso-opcion1',viewValue:'a) Con experiencia mínima de\n' +
+        'un (01) año en actividades\n' +
+        'turísticas y que haya llevado por\n' +
+        'lo menos un curso de técnicas\n' +
+        'de atención al cliente'},
+    {value:'perso-opcion2',viewValue: 'b) Con formación académica\n' +
+        'superior o técnico-productiva en\n' +
+        'materia de turismo.'},
+  ]
   equipamiento=[
-    {value:'Equi-opcion1',viewValue:'a) Equipo de cómputo'},
-    {value:'Equi-opcion2',viewValue: 'b) Conexión a Internet y\n' +
+    {value:'equi-opcion1',viewValue:'a) Equipo de cómputo'},
+    {value:'equi-opcion2',viewValue: 'b) Conexión a Internet y\n' +
         'correo electrónico'},
-    {value:'Equi-opcion3',viewValue:'c) Teléfono'},
-    {value:'Equi-opcion4',viewValue: 'd) Equipo de impresora y\n' +
+    {value:'equi-opcion3',viewValue:'c) Teléfono'},
+    {value:'equi-opcion4',viewValue: 'd) Equipo de impresora y\n' +
         'escáner'}
   ]
+  readonly gestor=signal<Task>({
+    name:'a) Ser propietario, licenciatario o administrador de canales digitales\n' +
+      'para la oferta, promoción, comercialización y, en general, la\n' +
+      'prestación de sus servicios, los cuales incluyen los contenidos\n' +
+      'mínimos siguientes:',
+    completed:false,
+    subtasks:[
+      {name:'1. Número de teléfono, dirección y datos de contacto de la\n' +
+          'agencia de viajes y turismo y correo electrónico, las cuales\n' +
+          'pueden ser utilizados para asistir y/o atender y/o asesorar al\n' +
+          'consumidor.\n',completed:false},
+      {name:'2. Número de RUC. \n',completed: false },
+      {name:'3. Razón social o nombres y apellidos, según corresponda.\n',completed:false },
+      {name:'4. Nombre comercial',completed: false},
+      {name: '5. Política de Protección de Datos Personales.',completed:false},
+      {name:'6. Términos y Condiciones de Uso del canal digital, lo que\n' +
+          'incluye, entre otros aspectos, las políticas de cobro,\n' +
+          'cancelación y reembolso.',completed:false},
+      {name:'7. Constancia de inscripción en el Directorio Nacional de\n' +
+          'Prestadores de Servicios Turísticos Calificados, cuando esta\n' +
+          'sea expedida.\n',completed:false},
+      {name: '8. Versión digital del afiche u otro documento similar, que\n' +
+          'contenga información respecto de las disposiciones legales\n' +
+          'que sancionan penalmente las conductas vinculadas a la\n' +
+          'ESNNA, de acuerdo a las características y contenido\n' +
+          'establecidos por el MINCETUR, así como las que sancionan\n' +
+          'el hecho de tener relaciones sexuales con menores de edad,\n' +
+          'sin perjuicio de otras medidas que puedan adoptar con el\n' +
+          'mismo fin.\n',completed: false}
+    ],
+
+  });
   readonly task=signal<Task>({
     name:'Oficina administrativa con las\n' +
       'características siguientes:',
@@ -61,6 +108,14 @@ export class ProcedureFormsComponent {
           'de negocio colindantes.\n',completed:false},
     ],
   });
+  readonly personalCalificadoPartiallyComplete=computed(()=>{
+    const task = this.gestor();
+    if(!task.subtasks){
+      return false;
+    }
+    return task.subtasks.some(t=>t.completed)&& !task.subtasks.every(t=>t.completed);
+  });
+
   readonly partiallyComplete = computed(()=>{
     const task = this.task();
     if(!task.subtasks){
@@ -68,6 +123,18 @@ export class ProcedureFormsComponent {
     }
     return task.subtasks.some(t=>t.completed)&& !task.subtasks.every(t=>t.completed);
   });
+  updateGestor(completed:boolean, index?:number){
+    this.gestor.update(task => {
+      if(index===undefined){
+        task.completed=completed;
+        task.subtasks?.forEach(t =>(t.completed=completed));
+      }else{
+        task.subtasks![index].completed=completed;
+        task.completed=task.subtasks?.every(t=>completed)??true;
+      }
+      return {...task};
+    })
+  }
   update(completed:boolean, index?:number){
     this.task.update(task => {
       if(index===undefined){
@@ -113,17 +180,51 @@ export class ProcedureFormsComponent {
 
     this.step3Form = this.fb.group({
       multiboxSeleccion: this.fb.array([], Validators.required), // Inicialmente vacío
-      multiboxSeleccionTurismo:this.fb.array([],Validators.required)
+      multiboxSeleccionEquipamiento:this.fb.array([],Validators.required),
+      multiboxSeleccionPersonal:this.fb.array([],Validators.required),
+      personalCalificado: ['', Validators.required],
+    });
+    this.step4Form = this.fb.group({
+      multiboxSeleccionGestor: this.fb.array([], Validators.required),
+      multiboxSeleccionContenido: this.fb.array([], Validators.required),
+      multiboxSeleccionMedidas: this.fb.array([], Validators.required),
+    });
+    this.step5Form = this.fb.group({
+      multiboxClasificacion: this.fb.array([], Validators.required),
+    });
+    this.step6Form = this.fb.group({
+      modalidadTurismo: ['', Validators.required],
+      tipoTurismo: ['', Validators.required],
+    });
+    this.step7Form = this.fb.group({
+      asociacion: ['', Validators.required],
+      calificacion: ['', Validators.required],
+      servicioTransportePropio: this.fb.array([], Validators.required),
+      nUnidadesServicio: ['', Validators.required],
+      nPlacas: ['', Validators.required],
     });
   }
-  get multiboxSeleccionTurismo(): FormArray {
-    return this.step3Form.get('multiboxSeleccionTurismo') as FormArray;
+  get multiboxSeleccionEquipamiento(): FormArray {
+    return this.step3Form.get('multiboxSeleccionEquipamiento') as FormArray;
   }
   get multiboxSeleccion(): FormArray {
     return this.step3Form.get('multiboxSeleccion') as FormArray;
   }
-  onCheckBoxChangeTurismo(event:any){
-    const formArray: FormArray = this.multiboxSeleccionTurismo;
+  get multiboxSeleccionPersonal():FormArray {
+    return this.step3Form.get('multiboxSeleccionPersonal') as FormArray;
+  }
+
+  onCheckBoxChangePersonal(event:any){
+    const formArray: FormArray = this.multiboxSeleccionPersonal;
+    if(event.cheked){
+      formArray.push(new FormControl(event.source.value));
+    }else{
+      const index=formArray.controls.findIndex(x=>x.value===event.source.value)
+      formArray.removeAt(index);
+    }
+  }
+  onCheckBoxChangeEquipamiento(event:any){
+    const formArray: FormArray = this.multiboxSeleccionEquipamiento;
     if(event.cheked){
       formArray.push(new FormControl(event.source.value));
     }else{
@@ -148,6 +249,8 @@ export class ProcedureFormsComponent {
     } else if (this.currentStep === 1 && this.step2Form.valid) {
       this.currentStep++;
     } else if (this.currentStep === 2 && this.step3Form.valid) {
+      this.currentStep++;
+    }else if(this.currentStep === 3 && this.step4Form.valid) {
       this.currentStep++;
     }
   }
