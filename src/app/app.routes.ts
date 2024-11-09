@@ -14,6 +14,7 @@ import {OpportunitiesComponent} from './layout/main-page/opportunities/opportuni
 import {ProcedureComponent} from './components/main-page/formalization/procedure/procedure.component';
 import {ProcedureFormsComponent} from './components/main-page/formalization/procedure-forms/procedure-forms.component';
 import {CreateServiceComponent} from './layout/main-page/create-service/create-service.component';
+import {TouristServiceLayoutComponent} from './pages/tourist-service-layout/tourist-service-layout.component';
 
 export const appRoutes: Routes = [
   {
@@ -42,6 +43,10 @@ export const appRoutes: Routes = [
       { path: 'support', component: SupportComponent },
       { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
     ],
+  },
+  {
+    path: 'tourist-services',
+    component: TouristServiceLayoutComponent,
   },
 ];
 

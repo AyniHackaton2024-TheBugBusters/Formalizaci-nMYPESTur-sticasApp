@@ -1,0 +1,7 @@
+<div class="container mx-auto p-6">
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+    <div *ngFor="let service of services">
+      <app-tourist-service-card [service]="service"></app-tourist-service-card>
+    </div>
+  </div>
+</div>
