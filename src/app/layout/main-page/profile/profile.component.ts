@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import {MatProgressBar} from '@angular/material/progress-bar';
 import {MatCard} from '@angular/material/card';
-import {NgClass} from '@angular/common';
+import {NgClass, NgIf} from '@angular/common';
 import {MatButton} from '@angular/material/button';
 
 @Component({
@@ -11,7 +11,8 @@ import {MatButton} from '@angular/material/button';
     MatProgressBar,
     MatCard,
     NgClass,
-    MatButton
+    MatButton,
+    NgIf
   ],
   templateUrl: './profile.component.html',
   styleUrl: './profile.component.css'
