@@ -1,0 +1,93 @@
+<div class="container">
+  <div class="row">
+    <!-- Panel de Consejos y Recomendaciones -->
+    <div class="col-4 tips-panel">
+      <h3>Consejos para Llenar el Formulario</h3>
+      <ul>
+        <li *ngIf="currentField === 'title_service'">
+          El título debe ser atractivo e informativo. Piensa en lo que destacará tu servicio para el turista.
+          <br /><strong>Ejemplo:</strong> "Aventura en la Selva Amazónica: Exploración de 3 días"
+        </li>
+
+        <li *ngIf="currentField === 'description'">
+          Describe brevemente en qué consiste el servicio. Usa palabras clave que sean fáciles de entender.
+          <br /><strong>Ejemplo:</strong> "Explora la biodiversidad de la Amazonía peruana con guías locales expertos."
+        </li>
+
+        <li *ngIf="currentField === 'itinerary'">
+          Enumera las actividades en orden cronológico y proporciona detalles suficientes para cada día del itinerario, incluyendo horarios y puntos de encuentro si es posible.
+          <br /><strong>Ejemplo:</strong>
+          <ul>
+            <li><strong>Día 1:</strong> Recepción en el aeropuerto de Iquitos a las 9:00 a.m. y traslado en bote al eco-lodge. Almuerzo típico de bienvenida y breve charla de introducción a la flora y fauna de la región. Por la tarde, recorrido en canoa por el río y observación de delfines rosados. Cena en el lodge y descanso.</li>
+            <li><strong>Día 2:</strong> Caminata guiada a las 6:00 a.m. para avistamiento de aves exóticas. Desayuno al regresar. Más tarde, exploración de la selva con un guía local, quien compartirá conocimientos sobre plantas medicinales. Almuerzo en el lodge. Por la tarde, visita a una comunidad indígena para conocer sus tradiciones y artesanías. Cena y actividad nocturna para observación de fauna nocturna.</li>
+            <li><strong>Día 3:</strong> Desayuno en el lodge. Tiempo libre para descanso o actividades adicionales como pesca. A las 11:00 a.m., regreso en bote a la ciudad y traslado al aeropuerto para despedida.</li>
+          </ul>
+        </li>
+
+        <li *ngIf="currentField === 'included_services'">
+          Enumera los servicios incluidos, como transporte, alimentación, guías, etc. Esto es crucial para la decisión de los turistas.
+          <br /><strong>Ejemplo:</strong> "Incluye transporte terrestre, hospedaje en eco-lodge, tres comidas al día, y guía bilingüe."
+        </li>
+
+        <li *ngIf="currentField === 'not_included_services'">
+          Avisa de los servicios que no están incluidos para evitar malos entendidos.
+          <br /><strong>Ejemplo:</strong> "No incluye bebidas alcohólicas, propinas ni seguro de viaje."
+        </li>
+
+        <li *ngIf="currentField === 'recommendations'">
+          Añade recomendaciones específicas para que los turistas estén bien preparados y seguros. Incluye precauciones, sugerencias de vestimenta y equipo adecuado.
+          <br /><strong>Ejemplo:</strong>
+          <ul>
+            <li>Llevar repelente de insectos de alta eficacia y bloqueador solar de amplio espectro.</li>
+            <li>Empacar ropa ligera y de secado rápido, pero también de manga larga para protección contra insectos y sol.</li>
+            <li>Usar calzado resistente y cómodo para caminatas en terreno irregular. Botas impermeables son recomendadas.</li>
+            <li>Traer medicamentos básicos personales, como pastillas para el mareo (si es necesario para los traslados en bote) y cualquier medicación personal de uso regular.</li>
+            <li>Se recomienda llevar una botella de agua reutilizable y mantener una buena hidratación durante las actividades.</li>
+            <li>Evitar el uso de perfumes o lociones con fragancias fuertes, ya que pueden atraer insectos.</li>
+          </ul>
+        </li>
+
+        <li *ngIf="currentField === 'picturesUrls'">
+          Añade URLs de imágenes atractivas y de buena calidad. Recuerda que una imagen vale más que mil palabras.
+          <br /><strong>Ejemplo:</strong> "https://miweb.com/imagenes/selva-dia1.jpg, https://miweb.com/imagenes/selva-dia2.jpg"
+        </li>
+      </ul>
+    </div>
+
+
+    <!-- Formulario de Creación de Servicio -->
+    <div class="col-8">
+      <form [formGroup]="serviceForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <label for="title_service">Título del Servicio</label>
+          <input type="text" id="title_service" formControlName="title_service" class="form-control" (focus)="setCurrentField('title_service')" required />
+        </div>
+        <div class="form-group">
+          <label for="description">Descripción</label>
+          <textarea id="description" formControlName="description" class="form-control" (focus)="setCurrentField('description')" required></textarea>
+        </div>
+        <div class="form-group">
+          <label for="itinerary">Itinerario</label>
+          <textarea id="itinerary" formControlName="itinerary" class="form-control" (focus)="setCurrentField('itinerary')" required></textarea>
+        </div>
+        <div class="form-group">
+          <label for="included_services">Servicios Incluidos</label>
+          <textarea id="included_services" formControlName="included_services" class="form-control" (focus)="setCurrentField('included_services')" required></textarea>
+        </div>
+        <div class="form-group">
+          <label for="not_included_services">Servicios No Incluidos</label>
+          <textarea id="not_included_services" formControlName="not_included_services" class="form-control" (focus)="setCurrentField('not_included_services')" required></textarea>
+        </div>
+        <div class="form-group">
+          <label for="recommendations">Recomendaciones</label>
+          <textarea id="recommendations" formControlName="recommendations" class="form-control" (focus)="setCurrentField('recommendations')" required></textarea>
+        </div>
+        <div class="form-group">
+          <label for="picturesUrls">URLs de Imágenes</label>
+          <input type="text" id="picturesUrls" formControlName="picturesUrls" class="form-control" (focus)="setCurrentField('picturesUrls')" placeholder="Separadas por comas" />
+        </div>
+        <button type="submit" class="btn btn-primary p-5 bg-red-700 text-white font-bold item-center">Crear Servicio</button>
+      </form>
+    </div>
+  </div>
+</div>
