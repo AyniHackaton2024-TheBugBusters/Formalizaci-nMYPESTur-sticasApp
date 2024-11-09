@@ -1,11 +1,14 @@
 import { Component } from '@angular/core';
 import {RouterLink} from '@angular/router';
+import {NgForOf, NgIf} from '@angular/common';
 
 @Component({
   selector: 'app-necesary-documents',
   standalone: true,
   imports: [
-    RouterLink
+    RouterLink,
+    NgIf,
+    NgForOf
   ],
   templateUrl: './necesary-documents.component.html',
   styleUrl: './necesary-documents.component.css'
