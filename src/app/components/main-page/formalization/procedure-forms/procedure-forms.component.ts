@@ -18,12 +18,11 @@ import { Router } from '@angular/router';
 })
 export class ProcedureFormsComponent {
   currentStep = 0;
-  totalSteps = 5;
+  totalSteps = 4;
   step1Form: FormGroup;
   step2Form: FormGroup;
   step3Form: FormGroup;
   step4Form: FormGroup;
-  step5Form: FormGroup;
 
   constructor(private fb: FormBuilder, private datoService: DatoService, private snackBar: MatSnackBar, private router: Router) {
     this.step1Form = this.fb.group({
@@ -31,7 +30,8 @@ export class ProcedureFormsComponent {
       domicilio_legal: ['', Validators.required],
       departamento_provincia_distrito: ['', Validators.required],
       nombre_comercial: ['', Validators.required],
-      direccion: ['', Validators.required]
+      direccion: ['', Validators.required],
+      telefono: ['', Validators.required]
     });
 
     this.step2Form = this.fb.group({
@@ -39,26 +39,23 @@ export class ProcedureFormsComponent {
       provincia: ['', Validators.required],
       distrito: ['', Validators.required],
       telefonos: ['', Validators.required],
-      pagina_web: ['', Validators.required]
+      pagina_web: ['', Validators.required],
+      redes_sociales: ['', Validators.required]
     });
 
     this.step3Form = this.fb.group({
-      redes_sociales: ['', Validators.required],
       fecha_inicio_operaciones: ['', Validators.required],
       licencia_funcionamiento: ['', Validators.required],
       fecha_expedicion: ['', Validators.required],
-      infraestructura: ['', Validators.required]
+      infraestructura: ['', Validators.required],
+      equipamiento: ['', Validators.required],
+      personal_calificado: ['', Validators.required]
     });
 
     this.step4Form = this.fb.group({
-      equipamiento: ['', Validators.required],
-      personal_calificado: ['', Validators.required],
       condiciones_digitales: ['', Validators.required],
       modalidad_turismo: ['', Validators.required],
-      tipo_turismo: ['', Validators.required]
-    });
-
-    this.step5Form = this.fb.group({
+      tipo_turismo: ['', Validators.required],
       asociacion_turismo: ['', Validators.required],
       calificacion_calidad: ['', Validators.required],
       fecha: ['', Validators.required],
@@ -88,8 +85,6 @@ export class ProcedureFormsComponent {
         return this.step3Form.valid;
       case 3:
         return this.step4Form.valid;
-      case 4:
-        return this.step5Form.valid;
       default:
         return false;
     }
@@ -116,8 +111,7 @@ export class ProcedureFormsComponent {
         ...this.step1Form.value,
         ...this.step2Form.value,
         ...this.step3Form.value,
-        ...this.step4Form.value,
-        ...this.step5Form.value
+        ...this.step4Form.value
       };
 
       console.log('formData antes de enviar:', formData);

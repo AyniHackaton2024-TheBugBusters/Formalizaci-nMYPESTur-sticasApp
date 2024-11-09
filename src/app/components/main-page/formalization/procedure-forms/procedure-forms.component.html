@@ -1,5 +1,5 @@
 <!-- src/app/components/main-page/formalization/procedure-forms/procedure-forms.component.html -->
-<div class="bg-white shadow-md rounded-lg p-6 max-w-lg mx-auto mt-10">
+<div class="bg-white shadow-md rounded-lg p-6 max-w-2xl mx-auto mt-10">
   <h2 class="text-2xl font-semibold mb-6 text-center">Iniciar Trámite</h2>
 
   <!-- Contenedor del Paso 1 -->
@@ -7,23 +7,27 @@
     <form [formGroup]="step1Form">
       <div class="mb-4">
         <label for="razon_social" class="block text-gray-700">Razón Social</label>
-        <input id="razon_social" formControlName="razon_social" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm" placeholder="Razón Social" />
+        <input id="razon_social" formControlName="razon_social" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm text-lg p-2" placeholder="Razón Social" />
       </div>
       <div class="mb-4">
         <label for="domicilio_legal" class="block text-gray-700">Domicilio Legal</label>
-        <input id="domicilio_legal" formControlName="domicilio_legal" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm" placeholder="Domicilio Legal" />
+        <input id="domicilio_legal" formControlName="domicilio_legal" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm text-lg p-2" placeholder="Domicilio Legal" />
       </div>
       <div class="mb-4">
         <label for="departamento_provincia_distrito" class="block text-gray-700">Departamento/Provincia/Distrito</label>
-        <input id="departamento_provincia_distrito" formControlName="departamento_provincia_distrito" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm" placeholder="Departamento/Provincia/Distrito" />
+        <input id="departamento_provincia_distrito" formControlName="departamento_provincia_distrito" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm text-lg p-2" placeholder="Departamento/Provincia/Distrito" />
       </div>
       <div class="mb-4">
         <label for="nombre_comercial" class="block text-gray-700">Nombre Comercial</label>
-        <input id="nombre_comercial" formControlName="nombre_comercial" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm" placeholder="Nombre Comercial" />
+        <input id="nombre_comercial" formControlName="nombre_comercial" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm text-lg p-2" placeholder="Nombre Comercial" />
       </div>
       <div class="mb-4">
         <label for="direccion" class="block text-gray-700">Dirección</label>
-        <input id="direccion" formControlName="direccion" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm" placeholder="Dirección" />
+        <input id="direccion" formControlName="direccion" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm text-lg p-2" placeholder="Dirección" />
+      </div>
+      <div class="mb-4">
+        <label for="telefono" class="block text-gray-700">Teléfono</label>
+        <input id="telefono" formControlName="telefono" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm text-lg p-2" placeholder="Teléfono" />
       </div>
     </form>
   </div>
@@ -33,23 +37,27 @@
     <form [formGroup]="step2Form">
       <div class="mb-4">
         <label for="departamento" class="block text-gray-700">Departamento</label>
-        <input id="departamento" formControlName="departamento" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm" placeholder="Departamento" />
+        <input id="departamento" formControlName="departamento" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm text-lg p-2" placeholder="Departamento" />
       </div>
       <div class="mb-4">
         <label for="provincia" class="block text-gray-700">Provincia</label>
-        <input id="provincia" formControlName="provincia" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm" placeholder="Provincia" />
+        <input id="provincia" formControlName="provincia" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm text-lg p-2" placeholder="Provincia" />
       </div>
       <div class="mb-4">
         <label for="distrito" class="block text-gray-700">Distrito</label>
-        <input id="distrito" formControlName="distrito" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm" placeholder="Distrito" />
+        <input id="distrito" formControlName="distrito" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm text-lg p-2" placeholder="Distrito" />
       </div>
       <div class="mb-4">
         <label for="telefonos" class="block text-gray-700">Teléfonos</label>
-        <input id="telefonos" formControlName="telefonos" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm" placeholder="Teléfonos" />
+        <input id="telefonos" formControlName="telefonos" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm text-lg p-2" placeholder="Teléfonos" />
       </div>
       <div class="mb-4">
         <label for="pagina_web" class="block text-gray-700">Página Web</label>
-        <input id="pagina_web" formControlName="pagina_web" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm" placeholder="Página Web" />
+        <input id="pagina_web" formControlName="pagina_web" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm text-lg p-2" placeholder="Página Web" />
+      </div>
+      <div class="mb-4">
+        <label for="redes_sociales" class="block text-gray-700">Redes Sociales</label>
+        <input id="redes_sociales" formControlName="redes_sociales" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm text-lg p-2" placeholder="Redes Sociales" />
       </div>
     </form>
   </div>
@@ -58,24 +66,28 @@
   <div *ngIf="currentStep === 2">
     <form [formGroup]="step3Form">
       <div class="mb-4">
-        <label for="redes_sociales" class="block text-gray-700">Redes Sociales</label>
-        <input id="redes_sociales" formControlName="redes_sociales" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm" placeholder="Redes Sociales" />
-      </div>
-      <div class="mb-4">
         <label for="fecha_inicio_operaciones" class="block text-gray-700">Fecha de Inicio de Operaciones</label>
-        <input id="fecha_inicio_operaciones" formControlName="fecha_inicio_operaciones" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm" placeholder="Fecha de Inicio de Operaciones" />
+        <input id="fecha_inicio_operaciones" formControlName="fecha_inicio_operaciones" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm text-lg p-2" placeholder="Fecha de Inicio de Operaciones" />
       </div>
       <div class="mb-4">
         <label for="licencia_funcionamiento" class="block text-gray-700">Licencia de Funcionamiento</label>
-        <input id="licencia_funcionamiento" formControlName="licencia_funcionamiento" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm" placeholder="Licencia de Funcionamiento" />
+        <input id="licencia_funcionamiento" formControlName="licencia_funcionamiento" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm text-lg p-2" placeholder="Licencia de Funcionamiento" />
       </div>
       <div class="mb-4">
         <label for="fecha_expedicion" class="block text-gray-700">Fecha de Expedición</label>
-        <input id="fecha_expedicion" formControlName="fecha_expedicion" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm" placeholder="Fecha de Expedición" />
+        <input id="fecha_expedicion" formControlName="fecha_expedicion" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm text-lg p-2" placeholder="Fecha de Expedición" />
       </div>
       <div class="mb-4">
         <label for="infraestructura" class="block text-gray-700">Infraestructura</label>
-        <input id="infraestructura" formControlName="infraestructura" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm" placeholder="Infraestructura" />
+        <input id="infraestructura" formControlName="infraestructura" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm text-lg p-2" placeholder="Infraestructura" />
+      </div>
+      <div class="mb-4">
+        <label for="equipamiento" class="block text-gray-700">Equipamiento</label>
+        <input id="equipamiento" formControlName="equipamiento" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm text-lg p-2" placeholder="Equipamiento" />
+      </div>
+      <div class="mb-4">
+        <label for="personal_calificado" class="block text-gray-700">Personal Calificado</label>
+        <input id="personal_calificado" formControlName="personal_calificado" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm text-lg p-2" placeholder="Personal Calificado" />
       </div>
     </form>
   </div>
@@ -84,46 +96,32 @@
   <div *ngIf="currentStep === 3">
     <form [formGroup]="step4Form">
       <div class="mb-4">
-        <label for="equipamiento" class="block text-gray-700">Equipamiento</label>
-        <input id="equipamiento" formControlName="equipamiento" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm" placeholder="Equipamiento" />
-      </div>
-      <div class="mb-4">
-        <label for="personal_calificado" class="block text-gray-700">Personal Calificado</label>
-        <input id="personal_calificado" formControlName="personal_calificado" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm" placeholder="Personal Calificado" />
-      </div>
-      <div class="mb-4">
         <label for="condiciones_digitales" class="block text-gray-700">Condiciones Digitales</label>
-        <input id="condiciones_digitales" formControlName="condiciones_digitales" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm" placeholder="Condiciones Digitales" />
+        <input id="condiciones_digitales" formControlName="condiciones_digitales" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm text-lg p-2" placeholder="Condiciones Digitales" />
       </div>
       <div class="mb-4">
         <label for="modalidad_turismo" class="block text-gray-700">Modalidad de Turismo</label>
-        <input id="modalidad_turismo" formControlName="modalidad_turismo" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm" placeholder="Modalidad de Turismo" />
+        <input id="modalidad_turismo" formControlName="modalidad_turismo" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm text-lg p-2" placeholder="Modalidad de Turismo" />
       </div>
       <div class="mb-4">
         <label for="tipo_turismo" class="block text-gray-700">Tipo de Turismo</label>
-        <input id="tipo_turismo" formControlName="tipo_turismo" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm" placeholder="Tipo de Turismo" />
+        <input id="tipo_turismo" formControlName="tipo_turismo" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm text-lg p-2" placeholder="Tipo de Turismo" />
       </div>
-    </form>
-  </div>
-
-  <!-- Contenedor del Paso 5 -->
-  <div *ngIf="currentStep === 4">
-    <form [formGroup]="step5Form">
       <div class="mb-4">
         <label for="asociacion_turismo" class="block text-gray-700">Asociación de Turismo</label>
-        <input id="asociacion_turismo" formControlName="asociacion_turismo" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm" placeholder="Asociación de Turismo" />
+        <input id="asociacion_turismo" formControlName="asociacion_turismo" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm text-lg p-2" placeholder="Asociación de Turismo" />
       </div>
       <div class="mb-4">
         <label for="calificacion_calidad" class="block text-gray-700">Calificación de Calidad</label>
-        <input id="calificacion_calidad" formControlName="calificacion_calidad" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm" placeholder="Calificación de Calidad" />
+        <input id="calificacion_calidad" formControlName="calificacion_calidad" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm text-lg p-2" placeholder="Calificación de Calidad" />
       </div>
       <div class="mb-4">
         <label for="fecha" class="block text-gray-700">Fecha</label>
-        <input id="fecha" formControlName="fecha" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm" placeholder="Fecha" />
+        <input id="fecha" formControlName="fecha" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm text-lg p-2" placeholder="Fecha" />
       </div>
       <div class="mb-4">
         <label for="firma" class="block text-gray-700">Firma</label>
-        <input id="firma" formControlName="firma" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm" placeholder="Firma" />
+        <input id="firma" formControlName="firma" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm text-lg p-2" placeholder="Firma" />
       </div>
     </form>
   </div>
