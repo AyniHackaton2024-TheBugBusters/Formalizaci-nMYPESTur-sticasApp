@@ -1,7 +1,12 @@
-.mat-form-field {
-  width: 100%;
+input[type="text"],
+input[type="password"] {
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  color: #333;
 }
 
-button[mat-raised-button] {
-  margin-top: 16px;
+input[type="text"]:focus,
+input[type="password"]:focus {
+  background-color: #fff;
+  border-color: #007bff;
 }
