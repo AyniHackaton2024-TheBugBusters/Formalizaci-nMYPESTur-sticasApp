@@ -199,7 +199,7 @@
 
     <!-- Botón Siguiente (se muestra hasta el paso 2) -->
     <button
-      *ngIf="currentStep < 3"
+      *ngIf="currentStep < 2"
       (click)="nextStep()"
       class="bg-blue-500 text-white px-4 py-2 rounded">
       Siguiente
@@ -207,7 +207,7 @@
 
     <!-- Botón Terminar (solo se muestra en el paso 3) -->
     <button
-      *ngIf="currentStep === 3"
+      *ngIf="currentStep === 2"
       (click)="finish()"
       class="bg-blue-500 text-white px-4 py-2 rounded">
       Terminar
