@@ -56,7 +56,8 @@ export class CreateServiceComponent {
         included_services: this.serviceForm.value.included_services,
         not_included_services: this.serviceForm.value.not_included_services,
         recommendations: this.serviceForm.value.recommendations,
-        picturesUrls: this.serviceForm.value.picturesUrls.split(',').map((url: string) => url.trim())
+        picturesUrls: this.serviceForm.value.picturesUrls.split(',').map((url: string) => url.trim()),
+        __v: 0
       };
 
       this.touristServiceService.createTouristService(serviceData).subscribe(response => {

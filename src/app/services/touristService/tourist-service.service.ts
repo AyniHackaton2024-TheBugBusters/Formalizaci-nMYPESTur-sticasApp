@@ -17,4 +17,8 @@ export class TouristServiceService extends BaseService<TouristService>{
   createTouristService(serviceData: TouristService): Observable<any> {
     return this.http.post(this.buildPath() + '/touristService', serviceData, this.httpOptions);
   }
+
+  getTouristServices(): Observable<TouristService[]> {
+    return this.http.get<TouristService[]>(this.buildPath() + '/touristService', this.httpOptions);
+  }
 }
