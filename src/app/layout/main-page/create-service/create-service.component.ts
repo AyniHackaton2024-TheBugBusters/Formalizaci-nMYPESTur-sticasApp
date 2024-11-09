@@ -60,6 +60,8 @@ export class CreateServiceComponent {
         __v: 0
       };
 
+      console.log(serviceData);
+
       this.touristServiceService.createTouristService(serviceData).subscribe(response => {
         this.snackBar.open('Servicio turistico creado con exito', 'Cerrar', {
           duration: 3000,

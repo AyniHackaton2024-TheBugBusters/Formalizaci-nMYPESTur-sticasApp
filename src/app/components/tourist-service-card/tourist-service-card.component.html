@@ -1,17 +1,20 @@
-<div class="card-container w-full">
-  <mat-card class="service-card">
-    <img mat-card-image [src]="service.picturesUrls[0]" alt="Service Image" />
-    <mat-card-title>{{ service.title_service }}</mat-card-title>
-    <mat-card-subtitle>{{ service.description }}</mat-card-subtitle>
-    <mat-card-content>
-      <ng-container *ngIf="isUser(service.account_id); else stringAccount">
-        <p><strong>Empresa:</strong> {{ service.account_id.nombre_completo }}</p>
-        <p><strong>RUC:</strong> {{ service.account_id.ruc }}</p>
-      </ng-container>
-      <ng-template #stringAccount>
-        <p><strong>Empresa:</strong> {{ service.account_id }}</p>
-      </ng-template>
-      <p><strong>Itinerario:</strong> {{ service.itinerary }}</p>
-    </mat-card-content>
-  </mat-card>
+<!-- In `src/app/components/tourist-service-card/tourist-service-card.component.html` -->
+<div class="card-wrapper w-full">
+  <div class="card-container w-full">
+    <mat-card class="service-card w-full h-fit">
+      <img mat-card-image [src]="service.picturesUrls[0]" alt="Service Image" />
+      <mat-card-title>{{ service.title_service }}</mat-card-title>
+      <mat-card-subtitle>{{ service.description }}</mat-card-subtitle>
+      <mat-card-content>
+        <ng-container *ngIf="isUser(service.account_id); else stringAccount">
+          <p><strong>Empresa:</strong> {{ service.account_id.nombre_completo }}</p>
+          <p><strong>RUC:</strong> {{ service.account_id.ruc }}</p>
+        </ng-container>
+        <ng-template #stringAccount>
+          <p><strong>Empresa:</strong> {{ service.account_id }}</p>
+        </ng-template>
+        <p><strong>Itinerario:</strong> {{ service.itinerary }}</p>
+      </mat-card-content>
+    </mat-card>
+  </div>
 </div>
