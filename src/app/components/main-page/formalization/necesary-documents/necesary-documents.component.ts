@@ -7,8 +7,8 @@ import {NgForOf, NgIf} from '@angular/common';
   standalone: true,
   imports: [
     RouterLink,
-    NgForOf,
-    NgIf
+    NgIf,
+    NgForOf
   ],
   templateUrl: './necesary-documents.component.html',
   styleUrl: './necesary-documents.component.css'

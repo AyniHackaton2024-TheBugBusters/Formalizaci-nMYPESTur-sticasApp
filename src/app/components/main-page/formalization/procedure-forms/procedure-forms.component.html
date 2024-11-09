@@ -1,34 +1,218 @@
 <div class="bg-white shadow-md rounded-lg p-6">
   <h2 class="text-xl font-semibold mb-4">Iniciar Trámite</h2>
+
   <div *ngIf="currentStep === 0">
     <form [formGroup]="step1Form">
-      <h3 class="font-semibold text-lg">Paso 1: Datos de la Empresa</h3>
-      <input formControlName="companyName" placeholder="Nombre de la empresa" class="mt-2 p-2 border rounded w-full" />
-      <div *ngIf="step1Form.get('companyName')?.invalid && step1Form.get('companyName')?.touched" class="text-red-500">
-        El nombre de la empresa es obligatorio.
+      <h3 class="font-semibold text-lg">PASO 1: INFORMACIÓN DE LA PERSONA TITULAR </h3>
+
+      <input formControlName="nombre" placeholder="Nombres" class="mt-2 p-2 border rounded w-full" />
+      <div *ngIf="step1Form.get('nombre')?.invalid && step1Form.get('nombre')?.touched" class="text-red-500">
+        El nombre de la persona titular es obligatorio.
+      </div>
+
+      <input formControlName="apellidos" placeholder="Apellidos" class="mt-2 p-2 border rounded w-full"/>
+      <div *ngIf="step1Form.get('apellidos')?.invalid && step1Form.get('apellidos')?.touched" class="text-red-500">
+        El apellido de la persona titular es obligatorio.
+      </div>
+
+      <input formControlName="razonSocial" placeholder="Razon Social" class="mt-2 p-2 border rounded w-full"/>
+      <div *ngIf="step1Form.get('apellidos')?.invalid && step1Form.get('apellidos')?.touched" class="text-red-500">
+        La razon social es solo obligatoria para personas juridicas.
+      </div>
+
+      <input formControlName="nRuc" placeholder="Numero de RUC" class="mt-2 p-2 border rounded w-full"/>
+      <div *ngIf="step1Form.get('nRuc')?.invalid && step1Form.get('nRuc')?.touched" class="text-red-500">
+        El numero de ruc de la persona titular es obligatorio.
+      </div>
+
+      <input formControlName="domicilioLegal" placeholder="Domicilio legal" class="mt-2 p-2 border rounded w-full"/>
+      <div *ngIf="step1Form.get('domicilioLegal')?.invalid && step1Form.get('domicilioLegal')?.touched" class="text-red-500">
+        El domiclio legal de la persona titular es obligatorio.
+      </div>
+
+      <input formControlName="departamento" placeholder="Departamento" class="mt-2 p-2 border rounded w-full"/>
+      <div *ngIf="step1Form.get('departamento')?.invalid && step1Form.get('departamento')?.touched" class="text-red-500">
+        El departamento de residencia de la persona titular es obligatorio.
+      </div>
+
+      <input formControlName="provincia" placeholder="Provincia" class="mt-2 p-2 border rounded w-full"/>
+      <div *ngIf="step1Form.get('provincia')?.invalid && step1Form.get('provincia')?.touched" class="text-red-500">
+        La provincia de residencia de la persona titular es obligatorio.
+      </div>
+
+      <input formControlName="distrito" placeholder="Distrito" class="mt-2 p-2 border rounded w-full"/>
+      <div *ngIf="step1Form.get('distrito')?.invalid && step1Form.get('distrito')?.touched" class="text-red-500">
+        El distrito de residencia de la persona titular es obligatorio.
+      </div>
+
+      <input formControlName="representanteLegal" placeholder="Representante legal" class="mt-2 p-2 border rounded w-full"/>
+      <div *ngIf="step1Form.get('representanteLegal')?.invalid && step1Form.get('representanteLegal')?.touched" class="text-red-500">
+        El nombre del representante legal es obligatorio.
+      </div>
+
+      <input formControlName="nDniRepresentanteLegal" placeholder="Numero de DNI del representante legal" class="mt-2 p-2 border rounded w-full"/>
+      <div *ngIf="step1Form.get('nDniRepresentanteLegal')?.invalid && step1Form.get('nDniRepresentanteLegal')?.touched" class="text-red-500">
+        El nombre del representante legal es obligatorio.
       </div>
     </form>
   </div>
+
   <div *ngIf="currentStep === 1">
     <form [formGroup]="step2Form">
-      <h3 class="font-semibold text-lg">Paso 2: Documentación</h3>
-      <input formControlName="rucNumber" placeholder="Número de RUC" class="mt-2 p-2 border rounded w-full" />
-      <div *ngIf="step2Form.get('rucNumber')?.invalid && step2Form.get('rucNumber')?.touched" class="text-red-500">
-        El número de RUC es obligatorio.
+      <h3 class="font-semibold text-lg">PASO 2: INFORMACIÓN DEL ESTABLECIMIENTO</h3>
+
+      <input formControlName="nombreComercial" placeholder="Nombre Comercial" class="mt-2 p-2 border rounded w-full" />
+      <div *ngIf="step2Form.get('nombreComercial')?.invalid && step2Form.get('nombreComercial')?.touched" class="text-red-500">
+        El nombre comercial es obligatorio.
+      </div>
+
+      <input formControlName="direccionComercial" placeholder="Direccion" class="mt-2 p-2 border rounded w-full" />
+      <div *ngIf="step2Form.get('direccionComercial')?.invalid && step2Form.get('direccionComercial')?.touched" class="text-red-500">
+        La direccion del establecimiento es obligatorio.
+      </div>
+
+      <input formControlName="departamentoComercial" placeholder="Departamento" class="mt-2 p-2 border rounded w-full" />
+      <div *ngIf="step2Form.get('departamentoComercial')?.invalid && step2Form.get('departamentoComercial')?.touched" class="text-red-500">
+        El departamento del establecimiento es obligatorio.
+      </div>
+
+      <input formControlName="provinciaComercial" placeholder="Provincia" class="mt-2 p-2 border rounded w-full" />
+      <div *ngIf="step2Form.get('provinciaComercial')?.invalid && step2Form.get('provinciaComercial')?.touched" class="text-red-500">
+        La provincia del establecimiento es obligatorio.
+      </div>
+
+      <input formControlName="distritoComercial" placeholder="Distrito" class="mt-2 p-2 border rounded w-full" />
+      <div *ngIf="step2Form.get('distritoComercial')?.invalid && step2Form.get('distritoComercial')?.touched" class="text-red-500">
+        El distrito del establecimiento es obligatorio.
+      </div>
+
+      <input formControlName="telefonoComercial" placeholder="Telefono" class="mt-2 p-2 border rounded w-full" />
+      <div *ngIf="step2Form.get('telefonoComercial')?.invalid && step2Form.get('telefonoComercial')?.touched" class="text-red-500">
+        El telofono del establecimiento es obligatorio.
+      </div>
+
+      <input formControlName="paginawebComercial" placeholder="Pagina web" class="mt-2 p-2 border rounded w-full" />
+      <div *ngIf="step2Form.get('paginawebComercial')?.invalid && step2Form.get('paginawebComercial')?.touched" class="text-red-500">
+        La pagina web del establecimiento es obligatorio.
+      </div>
+
+      <input formControlName="correoComercial" placeholder="Correo electronico" class="mt-2 p-2 border rounded w-full" />
+      <div *ngIf="step2Form.get('correoComercial')?.invalid && step2Form.get('correoComercial')?.touched" class="text-red-500">
+        El correo  del establecimiento es obligatorio.
+      </div>
+
+      <input formControlName="cuentasRedesSocialesComercial" placeholder="Cuenta(s) de red(es) social(es)" class="mt-2 p-2 border rounded w-full" />
+      <div *ngIf="step2Form.get('cuentasRedesSocialesComercial')?.invalid && step2Form.get('cuentasRedesSocialesComercial')?.touched" class="text-red-500">
+        La(s) cuenta(s) de red(es) social(es) del establecimiento es obligatorio.
+      </div>
+
+      <input formControlName="fechaInicioOperacionesComercial" placeholder="Fecha de inicio de operaciones" class="mt-2 p-2 border rounded w-full" />
+      <div *ngIf="step2Form.get('fechaInicioOperacionesComercial')?.invalid && step2Form.get('fechaInicioOperacionesComercial')?.touched" class="text-red-500">
+        La fecha de inicio de operaciones del establecimiento es obligatoria.
+      </div>
+
+      <input formControlName="nlicenciaFuncionalComercial" placeholder="Numero de licencia de funcionamiento" class="mt-2 p-2 border rounded w-full" />
+      <div *ngIf="step2Form.get('nlicenciaFuncionalComercial')?.invalid && step2Form.get('nlicenciaFuncionalComercial')?.touched" class="text-red-500">
+        La fecha de inicio de operaciones del establecimiento es obligatoria.
+      </div>
+
+      <input formControlName="fechaExpedicionComercial" placeholder="Fecha de expedicion" class="mt-2 p-2 border rounded w-full" />
+      <div *ngIf="step2Form.get('fechaExpedicionComercial')?.invalid && step2Form.get('fechaExpedicionComercial')?.touched" class="text-red-500">
+        La fecha de expedicion comercial del establecimiento es obligatoria.
       </div>
     </form>
   </div>
+
   <div *ngIf="currentStep === 2">
     <form [formGroup]="step3Form">
-      <h3 class="font-semibold text-lg">Paso 3: Contacto</h3>
-      <input formControlName="email" placeholder="Correo Electrónico" class="mt-2 p-2 border rounded w-full" />
-      <div *ngIf="step3Form.get('email')?.invalid && step3Form.get('email')?.touched" class="text-red-500">
-        El correo electrónico es obligatorio y debe ser válido.
+      <h3 class="font-semibold text-lg">PASO 3: CONDICIONES MÍNIMAS PARA LA PRESTACIÓN DEL SERVICIO (ANEXO I DEL REGLAMENTO)</h3>
+      <h4 class="font-semibold text-lg">Infraestructura : </h4>
+      <mat-checkbox
+        [checked]="task().completed"
+        [indeterminate]="partiallyComplete()"
+        (change)="update($event.checked)">
+        {{ task().name }}
+      </mat-checkbox>
+
+      <div *ngFor="let subtask of task().subtasks; let i = index" class="ml-4">
+        <mat-checkbox
+          [checked]="subtask.completed"
+          (change)="update($event.checked, i)">
+          {{ subtask.name }}
+        </mat-checkbox>
       </div>
+      <br>
+      <h4 class="font-semibold text-lg">Equipamiento : </h4>
+      <div *ngFor="let option of equipamiento">
+        <mat-checkbox
+          [value]="option.value"
+          (change)="onCheckBoxChangeEquipamiento($event)">
+          {{ option.viewValue }}
+        </mat-checkbox>
+      </div>
+      <br>
+      <h4 class="font-semibold text-lg">Personal calificado (1) : </h4>
+      <div *ngFor="let option of personal_calificado">
+        <mat-checkbox
+          [value]="option.value"
+          (change)="onCheckBoxChangePersonal($event)">
+          {{ option.viewValue }}
+        </mat-checkbox>
+      </div>
+      <input formControlName="personalCalificado" placeholder="Total personal calificado" class="mt-2 p-2 border rounded w-full" />
     </form>
   </div>
-  <div class="flex justify-between mt-4">
-    <button (click)="previousStep()" [disabled]="currentStep === 0" class="bg-gray-500 text-white px-4 py-2 rounded">Anterior</button>
-    <button (click)="nextStep()" class="bg-blue-500 text-white px-4 py-2 rounded">Siguiente</button>
+
+  <div *ngIf="currentStep === 3">
+    <form [formGroup]="step4Form">
+      <h3 class="font-semibold text-lg">IV. CONDICIONES MÍNIMAS PARA LA PRESTACIÓN DEL SERVICIO A TRAVÉS DE CANALES DIGITALES (ARTÍCULO 22 DEL
+        REGLAMENTO) (1)
+      </h3>
+
+      <!-- Primera Sección de Checkboxes -->
+      <h4>{{ task().name }}</h4>
+      <mat-checkbox
+        [checked]="task().completed"
+        [indeterminate]="personalCalificadoPartiallyComplete()"
+        (change)="updateGestor($event.checked)">
+        {{ task().name }}
+      </mat-checkbox>
+      <div *ngFor="let subtask of task().subtasks; let i = index" class="ml-4">
+        <mat-checkbox
+          [checked]="subtask.completed"
+          (change)="updateGestor($event.checked, i)">
+          {{ subtask.name }}
+        </mat-checkbox>
+      </div>
+
+    </form>
   </div>
+
+  <div class="flex justify-between mt-4">
+    <!-- Botón Anterior (se muestra en todos los pasos excepto el primero) -->
+    <button
+      (click)="previousStep()"
+      [disabled]="currentStep === 0"
+      class="bg-gray-500 text-white px-4 py-2 rounded">
+      Anterior
+    </button>
+
+    <!-- Botón Siguiente (se muestra hasta el paso 2) -->
+    <button
+      *ngIf="currentStep < 2"
+      (click)="nextStep()"
+      class="bg-blue-500 text-white px-4 py-2 rounded">
+      Siguiente
+    </button>
+
+    <!-- Botón Terminar (solo se muestra en el paso 3) -->
+    <button
+      *ngIf="currentStep === 2"
+      (click)="finish()"
+      class="bg-blue-500 text-white px-4 py-2 rounded">
+      Terminar
+    </button>
+  </div>
+
+
 </div>
