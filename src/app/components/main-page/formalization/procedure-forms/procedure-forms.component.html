@@ -1,218 +1,100 @@
-<div class="bg-white shadow-md rounded-lg p-6">
-  <h2 class="text-xl font-semibold mb-4">Iniciar Trámite</h2>
-
-  <div *ngIf="currentStep === 0">
-    <form [formGroup]="step1Form">
-      <h3 class="font-semibold text-lg">PASO 1: INFORMACIÓN DE LA PERSONA TITULAR </h3>
-
-      <input formControlName="nombre" placeholder="Nombres" class="mt-2 p-2 border rounded w-full" />
-      <div *ngIf="step1Form.get('nombre')?.invalid && step1Form.get('nombre')?.touched" class="text-red-500">
-        El nombre de la persona titular es obligatorio.
-      </div>
-
-      <input formControlName="apellidos" placeholder="Apellidos" class="mt-2 p-2 border rounded w-full"/>
-      <div *ngIf="step1Form.get('apellidos')?.invalid && step1Form.get('apellidos')?.touched" class="text-red-500">
-        El apellido de la persona titular es obligatorio.
-      </div>
-
-      <input formControlName="razonSocial" placeholder="Razon Social" class="mt-2 p-2 border rounded w-full"/>
-      <div *ngIf="step1Form.get('apellidos')?.invalid && step1Form.get('apellidos')?.touched" class="text-red-500">
-        La razon social es solo obligatoria para personas juridicas.
-      </div>
-
-      <input formControlName="nRuc" placeholder="Numero de RUC" class="mt-2 p-2 border rounded w-full"/>
-      <div *ngIf="step1Form.get('nRuc')?.invalid && step1Form.get('nRuc')?.touched" class="text-red-500">
-        El numero de ruc de la persona titular es obligatorio.
-      </div>
-
-      <input formControlName="domicilioLegal" placeholder="Domicilio legal" class="mt-2 p-2 border rounded w-full"/>
-      <div *ngIf="step1Form.get('domicilioLegal')?.invalid && step1Form.get('domicilioLegal')?.touched" class="text-red-500">
-        El domiclio legal de la persona titular es obligatorio.
-      </div>
-
-      <input formControlName="departamento" placeholder="Departamento" class="mt-2 p-2 border rounded w-full"/>
-      <div *ngIf="step1Form.get('departamento')?.invalid && step1Form.get('departamento')?.touched" class="text-red-500">
-        El departamento de residencia de la persona titular es obligatorio.
-      </div>
-
-      <input formControlName="provincia" placeholder="Provincia" class="mt-2 p-2 border rounded w-full"/>
-      <div *ngIf="step1Form.get('provincia')?.invalid && step1Form.get('provincia')?.touched" class="text-red-500">
-        La provincia de residencia de la persona titular es obligatorio.
-      </div>
-
-      <input formControlName="distrito" placeholder="Distrito" class="mt-2 p-2 border rounded w-full"/>
-      <div *ngIf="step1Form.get('distrito')?.invalid && step1Form.get('distrito')?.touched" class="text-red-500">
-        El distrito de residencia de la persona titular es obligatorio.
-      </div>
-
-      <input formControlName="representanteLegal" placeholder="Representante legal" class="mt-2 p-2 border rounded w-full"/>
-      <div *ngIf="step1Form.get('representanteLegal')?.invalid && step1Form.get('representanteLegal')?.touched" class="text-red-500">
-        El nombre del representante legal es obligatorio.
-      </div>
-
-      <input formControlName="nDniRepresentanteLegal" placeholder="Numero de DNI del representante legal" class="mt-2 p-2 border rounded w-full"/>
-      <div *ngIf="step1Form.get('nDniRepresentanteLegal')?.invalid && step1Form.get('nDniRepresentanteLegal')?.touched" class="text-red-500">
-        El nombre del representante legal es obligatorio.
-      </div>
-    </form>
+<!-- src/app/components/main-page/formalization/procedure-forms/procedure-forms.component.html -->
+<form [formGroup]="form" (ngSubmit)="onSubmit()" class="max-w-lg mx-auto p-4 bg-white shadow-md rounded">
+  <div class="mb-4">
+    <label for="razon_social" class="block text-gray-700">Razón Social</label>
+    <input id="razon_social" formControlName="razon_social" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm" placeholder="Razón Social" />
   </div>
-
-  <div *ngIf="currentStep === 1">
-    <form [formGroup]="step2Form">
-      <h3 class="font-semibold text-lg">PASO 2: INFORMACIÓN DEL ESTABLECIMIENTO</h3>
-
-      <input formControlName="nombreComercial" placeholder="Nombre Comercial" class="mt-2 p-2 border rounded w-full" />
-      <div *ngIf="step2Form.get('nombreComercial')?.invalid && step2Form.get('nombreComercial')?.touched" class="text-red-500">
-        El nombre comercial es obligatorio.
-      </div>
-
-      <input formControlName="direccionComercial" placeholder="Direccion" class="mt-2 p-2 border rounded w-full" />
-      <div *ngIf="step2Form.get('direccionComercial')?.invalid && step2Form.get('direccionComercial')?.touched" class="text-red-500">
-        La direccion del establecimiento es obligatorio.
-      </div>
-
-      <input formControlName="departamentoComercial" placeholder="Departamento" class="mt-2 p-2 border rounded w-full" />
-      <div *ngIf="step2Form.get('departamentoComercial')?.invalid && step2Form.get('departamentoComercial')?.touched" class="text-red-500">
-        El departamento del establecimiento es obligatorio.
-      </div>
-
-      <input formControlName="provinciaComercial" placeholder="Provincia" class="mt-2 p-2 border rounded w-full" />
-      <div *ngIf="step2Form.get('provinciaComercial')?.invalid && step2Form.get('provinciaComercial')?.touched" class="text-red-500">
-        La provincia del establecimiento es obligatorio.
-      </div>
-
-      <input formControlName="distritoComercial" placeholder="Distrito" class="mt-2 p-2 border rounded w-full" />
-      <div *ngIf="step2Form.get('distritoComercial')?.invalid && step2Form.get('distritoComercial')?.touched" class="text-red-500">
-        El distrito del establecimiento es obligatorio.
-      </div>
-
-      <input formControlName="telefonoComercial" placeholder="Telefono" class="mt-2 p-2 border rounded w-full" />
-      <div *ngIf="step2Form.get('telefonoComercial')?.invalid && step2Form.get('telefonoComercial')?.touched" class="text-red-500">
-        El telofono del establecimiento es obligatorio.
-      </div>
-
-      <input formControlName="paginawebComercial" placeholder="Pagina web" class="mt-2 p-2 border rounded w-full" />
-      <div *ngIf="step2Form.get('paginawebComercial')?.invalid && step2Form.get('paginawebComercial')?.touched" class="text-red-500">
-        La pagina web del establecimiento es obligatorio.
-      </div>
-
-      <input formControlName="correoComercial" placeholder="Correo electronico" class="mt-2 p-2 border rounded w-full" />
-      <div *ngIf="step2Form.get('correoComercial')?.invalid && step2Form.get('correoComercial')?.touched" class="text-red-500">
-        El correo  del establecimiento es obligatorio.
-      </div>
-
-      <input formControlName="cuentasRedesSocialesComercial" placeholder="Cuenta(s) de red(es) social(es)" class="mt-2 p-2 border rounded w-full" />
-      <div *ngIf="step2Form.get('cuentasRedesSocialesComercial')?.invalid && step2Form.get('cuentasRedesSocialesComercial')?.touched" class="text-red-500">
-        La(s) cuenta(s) de red(es) social(es) del establecimiento es obligatorio.
-      </div>
-
-      <input formControlName="fechaInicioOperacionesComercial" placeholder="Fecha de inicio de operaciones" class="mt-2 p-2 border rounded w-full" />
-      <div *ngIf="step2Form.get('fechaInicioOperacionesComercial')?.invalid && step2Form.get('fechaInicioOperacionesComercial')?.touched" class="text-red-500">
-        La fecha de inicio de operaciones del establecimiento es obligatoria.
-      </div>
-
-      <input formControlName="nlicenciaFuncionalComercial" placeholder="Numero de licencia de funcionamiento" class="mt-2 p-2 border rounded w-full" />
-      <div *ngIf="step2Form.get('nlicenciaFuncionalComercial')?.invalid && step2Form.get('nlicenciaFuncionalComercial')?.touched" class="text-red-500">
-        La fecha de inicio de operaciones del establecimiento es obligatoria.
-      </div>
-
-      <input formControlName="fechaExpedicionComercial" placeholder="Fecha de expedicion" class="mt-2 p-2 border rounded w-full" />
-      <div *ngIf="step2Form.get('fechaExpedicionComercial')?.invalid && step2Form.get('fechaExpedicionComercial')?.touched" class="text-red-500">
-        La fecha de expedicion comercial del establecimiento es obligatoria.
-      </div>
-    </form>
+  <div class="mb-4">
+    <label for="domicilio_legal" class="block text-gray-700">Domicilio Legal</label>
+    <input id="domicilio_legal" formControlName="domicilio_legal" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm" placeholder="Domicilio Legal" />
   </div>
-
-  <div *ngIf="currentStep === 2">
-    <form [formGroup]="step3Form">
-      <h3 class="font-semibold text-lg">PASO 3: CONDICIONES MÍNIMAS PARA LA PRESTACIÓN DEL SERVICIO (ANEXO I DEL REGLAMENTO)</h3>
-      <h4 class="font-semibold text-lg">Infraestructura : </h4>
-      <mat-checkbox
-        [checked]="task().completed"
-        [indeterminate]="partiallyComplete()"
-        (change)="update($event.checked)">
-        {{ task().name }}
-      </mat-checkbox>
-
-      <div *ngFor="let subtask of task().subtasks; let i = index" class="ml-4">
-        <mat-checkbox
-          [checked]="subtask.completed"
-          (change)="update($event.checked, i)">
-          {{ subtask.name }}
-        </mat-checkbox>
-      </div>
-      <br>
-      <h4 class="font-semibold text-lg">Equipamiento : </h4>
-      <div *ngFor="let option of equipamiento">
-        <mat-checkbox
-          [value]="option.value"
-          (change)="onCheckBoxChangeEquipamiento($event)">
-          {{ option.viewValue }}
-        </mat-checkbox>
-      </div>
-      <br>
-      <h4 class="font-semibold text-lg">Personal calificado (1) : </h4>
-      <div *ngFor="let option of personal_calificado">
-        <mat-checkbox
-          [value]="option.value"
-          (change)="onCheckBoxChangePersonal($event)">
-          {{ option.viewValue }}
-        </mat-checkbox>
-      </div>
-      <input formControlName="personalCalificado" placeholder="Total personal calificado" class="mt-2 p-2 border rounded w-full" />
-    </form>
+  <div class="mb-4">
+    <label for="departamento_provincia_distrito" class="block text-gray-700">Departamento/Provincia/Distrito</label>
+    <input id="departamento_provincia_distrito" formControlName="departamento_provincia_distrito" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm" placeholder="Departamento/Provincia/Distrito" />
   </div>
-
-  <div *ngIf="currentStep === 3">
-    <form [formGroup]="step4Form">
-      <h3 class="font-semibold text-lg">IV. CONDICIONES MÍNIMAS PARA LA PRESTACIÓN DEL SERVICIO A TRAVÉS DE CANALES DIGITALES (ARTÍCULO 22 DEL
-        REGLAMENTO) (1)
-      </h3>
-
-      <!-- Primera Sección de Checkboxes -->
-      <h4>{{ task().name }}</h4>
-      <mat-checkbox
-        [checked]="task().completed"
-        [indeterminate]="personalCalificadoPartiallyComplete()"
-        (change)="updateGestor($event.checked)">
-        {{ task().name }}
-      </mat-checkbox>
-      <div *ngFor="let subtask of task().subtasks; let i = index" class="ml-4">
-        <mat-checkbox
-          [checked]="subtask.completed"
-          (change)="updateGestor($event.checked, i)">
-          {{ subtask.name }}
-        </mat-checkbox>
-      </div>
-
-    </form>
+  <div class="mb-4">
+    <label for="nombre_comercial" class="block text-gray-700">Nombre Comercial</label>
+    <input id="nombre_comercial" formControlName="nombre_comercial" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm" placeholder="Nombre Comercial" />
   </div>
-
-  <div class="flex justify-between mt-4">
-    <!-- Botón Anterior (se muestra en todos los pasos excepto el primero) -->
-    <button
-      (click)="previousStep()"
-      [disabled]="currentStep === 0"
-      class="bg-gray-500 text-white px-4 py-2 rounded">
-      Anterior
-    </button>
-
-    <!-- Botón Siguiente (se muestra hasta el paso 2) -->
-    <button
-      *ngIf="currentStep < 2"
-      (click)="nextStep()"
-      class="bg-blue-500 text-white px-4 py-2 rounded">
-      Siguiente
-    </button>
-
-    <!-- Botón Terminar (solo se muestra en el paso 3) -->
-    <button
-      *ngIf="currentStep === 2"
-      (click)="finish()"
-      class="bg-blue-500 text-white px-4 py-2 rounded">
-      Terminar
-    </button>
+  <div class="mb-4">
+    <label for="direccion" class="block text-gray-700">Dirección</label>
+    <input id="direccion" formControlName="direccion" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm" placeholder="Dirección" />
   </div>
-
-
-</div>
+  <div class="mb-4">
+    <label for="departamento" class="block text-gray-700">Departamento</label>
+    <input id="departamento" formControlName="departamento" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm" placeholder="Departamento" />
+  </div>
+  <div class="mb-4">
+    <label for="provincia" class="block text-gray-700">Provincia</label>
+    <input id="provincia" formControlName="provincia" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm" placeholder="Provincia" />
+  </div>
+  <div class="mb-4">
+    <label for="distrito" class="block text-gray-700">Distrito</label>
+    <input id="distrito" formControlName="distrito" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm" placeholder="Distrito" />
+  </div>
+  <div class="mb-4">
+    <label for="telefonos" class="block text-gray-700">Teléfonos</label>
+    <input id="telefonos" formControlName="telefonos" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm" placeholder="Teléfonos" />
+  </div>
+  <div class="mb-4">
+    <label for="pagina_web" class="block text-gray-700">Página Web</label>
+    <input id="pagina_web" formControlName="pagina_web" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm" placeholder="Página Web" />
+  </div>
+  <div class="mb-4">
+    <label for="redes_sociales" class="block text-gray-700">Redes Sociales</label>
+    <input id="redes_sociales" formControlName="redes_sociales" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm" placeholder="Redes Sociales" />
+  </div>
+  <div class="mb-4">
+    <label for="fecha_inicio_operaciones" class="block text-gray-700">Fecha de Inicio de Operaciones</label>
+    <input id="fecha_inicio_operaciones" formControlName="fecha_inicio_operaciones" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm" placeholder="Fecha de Inicio de Operaciones" />
+  </div>
+  <div class="mb-4">
+    <label for="licencia_funcionamiento" class="block text-gray-700">Licencia de Funcionamiento</label>
+    <input id="licencia_funcionamiento" formControlName="licencia_funcionamiento" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm" placeholder="Licencia de Funcionamiento" />
+  </div>
+  <div class="mb-4">
+    <label for="fecha_expedicion" class="block text-gray-700">Fecha de Expedición</label>
+    <input id="fecha_expedicion" formControlName="fecha_expedicion" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm" placeholder="Fecha de Expedición" />
+  </div>
+  <div class="mb-4">
+    <label for="infraestructura" class="block text-gray-700">Infraestructura</label>
+    <input id="infraestructura" formControlName="infraestructura" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm" placeholder="Infraestructura" />
+  </div>
+  <div class="mb-4">
+    <label for="equipamiento" class="block text-gray-700">Equipamiento</label>
+    <input id="equipamiento" formControlName="equipamiento" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm" placeholder="Equipamiento" />
+  </div>
+  <div class="mb-4">
+    <label for="personal_calificado" class="block text-gray-700">Personal Calificado</label>
+    <input id="personal_calificado" formControlName="personal_calificado" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm" placeholder="Personal Calificado" />
+  </div>
+  <div class="mb-4">
+    <label for="condiciones_digitales" class="block text-gray-700">Condiciones Digitales</label>
+    <input id="condiciones_digitales" formControlName="condiciones_digitales" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm" placeholder="Condiciones Digitales" />
+  </div>
+  <div class="mb-4">
+    <label for="modalidad_turismo" class="block text-gray-700">Modalidad de Turismo</label>
+    <input id="modalidad_turismo" formControlName="modalidad_turismo" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm" placeholder="Modalidad de Turismo" />
+  </div>
+  <div class="mb-4">
+    <label for="tipo_turismo" class="block text-gray-700">Tipo de Turismo</label>
+    <input id="tipo_turismo" formControlName="tipo_turismo" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm" placeholder="Tipo de Turismo" />
+  </div>
+  <div class="mb-4">
+    <label for="asociacion_turismo" class="block text-gray-700">Asociación de Turismo</label>
+    <input id="asociacion_turismo" formControlName="asociacion_turismo" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm" placeholder="Asociación de Turismo" />
+  </div>
+  <div class="mb-4">
+    <label for="calificacion_calidad" class="block text-gray-700">Calificación de Calidad</label>
+    <input id="calificacion_calidad" formControlName="calificacion_calidad" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm" placeholder="Calificación de Calidad" />
+  </div>
+  <div class="mb-4">
+    <label for="fecha" class="block text-gray-700">Fecha</label>
+    <input id="fecha" formControlName="fecha" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm" placeholder="Fecha" />
+  </div>
+  <div class="mb-4">
+    <label for="firma" class="block text-gray-700">Firma</label>
+    <input id="firma" formControlName="firma" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm" placeholder="Firma" />
+  </div>
+  <button type="submit" class="w-full bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600">Enviar</button>
+</form>

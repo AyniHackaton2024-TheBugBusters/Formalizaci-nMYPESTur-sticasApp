@@ -39,8 +39,15 @@ export class AuthenticationApiService extends BaseService<User> {
       .pipe(catchError(this.handleError))
       .pipe(tap((response: any) => {
         this.newToken(response.token);
-        localStorage.setItem('user_id', response.userId.toString());
-        localStorage.setItem('user', JSON.stringify(response));
+        const userData = {
+          token: response.token,
+          userId: response.userId,
+          userName: response.userName,
+          ruc: response.ruc,
+          dni: response.dni,
+          email: response.email
+        };
+        localStorage.setItem('userData', JSON.stringify(userData));
         this.authStatusSubject.next(true);
       }));
   }

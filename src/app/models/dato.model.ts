@@ -1,0 +1,36 @@
+﻿export interface Dato {
+  account_id: string;
+  nombres_apellidos: string;
+  razon_social: string;
+  ruc: string;
+  domicilio_legal: string;
+  departamento_provincia_distrito: string;
+  representante_legal: string;
+  documento_identidad_representante: string;
+  nombre_comercial: string;
+  direccion: string;
+  departamento: string;
+  provincia: string;
+  distrito: string;
+  telefonos: string;
+  pagina_web: string;
+  correo_electronico: string;
+  redes_sociales: string;
+  fecha_inicio_operaciones: string;
+  licencia_funcionamiento: string;
+  fecha_expedicion: string;
+  infraestructura: string;
+  equipamiento: string;
+  personal_calificado: string;
+  condiciones_digitales: string;
+  modalidad_turismo: string;
+  tipo_turismo: string;
+  asociacion_turismo: string;
+  calificacion_calidad: string;
+  fecha: string;
+  firma: string;
+  nombres_apellidos_declarante: string;
+  documento_identidad_declarante: string;
+  createdAt?: Date;
+  updateAt?: Date;
+}

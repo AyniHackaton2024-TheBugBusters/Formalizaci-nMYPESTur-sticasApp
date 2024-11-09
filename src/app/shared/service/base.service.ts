@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import {HttpClient, HttpErrorResponse, HttpHeaders} from "@angular/common/http";
-import {catchError, throwError} from "rxjs";
-import {environment} from '../../../environments/environment';
+import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
+import { catchError, throwError } from 'rxjs';
+import { environment } from '../../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -12,13 +12,12 @@ export class BaseService<T> {
   protected token: string | null = null;
 
   httpOptions = {
-    headers: new HttpHeaders(
-      {
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${this.token}`
-      }
-    ),
+    headers: new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': ` ${this.token}`
+    })
   };
+
   constructor(protected http: HttpClient) {}
 
   protected buildPath() {
@@ -30,14 +29,7 @@ export class BaseService<T> {
       localStorage.setItem('token', token);
     }
     this.token = token;
-    this.httpOptions = {
-      headers: new HttpHeaders(
-        {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${this.token}`
-        }
-      ),
-    };
+    this.updateHttpOptions();
   }
 
   setToken() {
@@ -45,14 +37,7 @@ export class BaseService<T> {
       const token = localStorage.getItem('token');
       if (token) {
         this.token = token;
-        this.httpOptions = {
-          headers: new HttpHeaders(
-            {
-              'Content-Type': 'application/json',
-              'Authorization': `Bearer ${this.token}`
-            }
-          ),
-        };
+        this.updateHttpOptions();
       }
     }
   }
@@ -62,6 +47,16 @@ export class BaseService<T> {
       localStorage.setItem('token', '');
     }
     this.token = null;
+    this.updateHttpOptions();
+  }
+
+  private updateHttpOptions() {
+    this.httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': ` ${this.token}`
+      })
+    };
   }
 
   handleError(error: HttpErrorResponse) {
