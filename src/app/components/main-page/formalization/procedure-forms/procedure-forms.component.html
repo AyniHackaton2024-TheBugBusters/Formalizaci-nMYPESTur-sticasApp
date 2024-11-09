@@ -189,8 +189,30 @@
   </div>
 
   <div class="flex justify-between mt-4">
-    <button (click)="previousStep()" [disabled]="currentStep === 0" class="bg-gray-500 text-white px-4 py-2 rounded">Anterior</button>
-    <button (click)="nextStep()" class="bg-blue-500 text-white px-4 py-2 rounded">Siguiente</button>
+    <!-- Botón Anterior (se muestra en todos los pasos excepto el primero) -->
+    <button
+      (click)="previousStep()"
+      [disabled]="currentStep === 0"
+      class="bg-gray-500 text-white px-4 py-2 rounded">
+      Anterior
+    </button>
+
+    <!-- Botón Siguiente (se muestra hasta el paso 2) -->
+    <button
+      *ngIf="currentStep < 3"
+      (click)="nextStep()"
+      class="bg-blue-500 text-white px-4 py-2 rounded">
+      Siguiente
+    </button>
+
+    <!-- Botón Terminar (solo se muestra en el paso 3) -->
+    <button
+      *ngIf="currentStep === 3"
+      (click)="finish()"
+      class="bg-blue-500 text-white px-4 py-2 rounded">
+      Terminar
+    </button>
   </div>
+
 
 </div>

@@ -44,6 +44,9 @@ export class ProcedureFormsComponent {
   step7Form: FormGroup;
 
   currentStep: number = 0;
+
+
+
   personal_calificado=[
     {value:'perso-opcion1',viewValue:'a) Con experiencia mínima de\n' +
         'un (01) año en actividades\n' +
@@ -242,7 +245,10 @@ export class ProcedureFormsComponent {
     }
   }
 
-
+  finish() {
+    console.log("Formulario completado");
+    // Aquí puedes agregar la lógica para finalizar el formulario, enviar datos, etc.
+  }
   nextStep() {
     if (this.currentStep === 0 && this.step1Form.valid) {
       this.currentStep++;
