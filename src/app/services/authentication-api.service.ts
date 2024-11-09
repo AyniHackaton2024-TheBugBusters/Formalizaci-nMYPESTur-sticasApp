@@ -17,13 +17,13 @@ export class AuthenticationApiService extends BaseService<User> {
     this.extraUrl =  environment.authenticationURL
   }
 
-  signUp(nombre_completo: string, ruc: string, email: string, dni: string, clave_hash: string, fecha_nacimiento: Date): Observable<any> {
+  signUp(nombre_completo: string, ruc: string, email: string, dni: string, password: string, fecha_nacimiento: Date): Observable<any> {
     const user = {
       nombre_completo,
       ruc,
       email,
       dni,
-      clave_hash,
+      password,
       fecha_nacimiento
     };
     return this.http.post(this.buildPath() + '/create-account', user, this.httpOptions)

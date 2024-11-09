@@ -68,11 +68,4 @@ export class LoginComponent implements OnInit {
     );
   }
 
-  redirectToPasswordRecovery() {
-    this.router.navigate([]);
-  }
-
-  redirectToSignin() {
-    this.router.navigate(['/signup']);
-  }
 }
