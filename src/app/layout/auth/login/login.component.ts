@@ -1,42 +1,78 @@
-import { Component } from '@angular/core';
-import {CommonModule} from '@angular/common';
-import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
-import {MatButtonModule} from '@angular/material/button';
-import {MatInputModule} from '@angular/material/input';
-import {Router, RouterLink} from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from "@angular/forms";
+import { MatButtonModule } from "@angular/material/button";
+import { MatFormFieldModule } from "@angular/material/form-field";
+import { MatInputModule } from "@angular/material/input";
+import { MatCardModule } from "@angular/material/card";
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router, RouterLink } from "@angular/router";
+import {NgIf} from "@angular/common";
+import {AuthenticationApiService} from '../../../services/authentication-api.service';
 
 @Component({
   selector: 'app-login',
   standalone: true,
   imports: [
-    CommonModule,
-    ReactiveFormsModule,
+    FormsModule,
     MatButtonModule,
+    MatFormFieldModule,
     MatInputModule,
-    RouterLink
+    RouterLink,
+    ReactiveFormsModule,
+    MatCardModule,
+    NgIf,
   ],
   templateUrl: './login.component.html',
-  styleUrl: './login.component.css'
+  styleUrls: ['./login.component.css']
 })
+export class LoginComponent implements OnInit {
 
-export class LoginComponent {
   loginForm: FormGroup;
+  errorMessage: string = '';
 
-  constructor(private fb: FormBuilder, private router: Router) {
+  constructor(
+    private fb: FormBuilder,
+    private authApi: AuthenticationApiService,
+    private snack: MatSnackBar,
+    private router: Router,
+  ) {
     this.loginForm = this.fb.group({
-      username: ['', Validators.required],
+      ruc: ['', Validators.required],
       password: ['', Validators.required]
     });
   }
 
-  onSubmit() {
-    if (this.loginForm.valid) {
-      // Aquí puedes manejar la lógica de autenticación
-      console.log('Usuario:', this.loginForm.value.username);
-      console.log('Contraseña:', this.loginForm.value.password);
+  ngOnInit(): void {}
 
-      // Ejemplo de redirección a otra página tras login exitoso
-      this.router.navigate(['/dashboard']);
+  onSubmit() {
+    if (this.loginForm.invalid) {
+      this.snack.open('Por favor, complete todos los campos requeridos.', 'Aceptar', {
+        duration: 3000
+      });
+      return;
     }
+
+    const { ruc, password } = this.loginForm.value;
+
+    this.authApi.signIn(ruc, password).subscribe(
+      (response) => {
+        console.log('Login successful', response);
+        this.router.navigate(['/home']);
+      },
+      (error) => {
+        console.log(error);
+        this.snack.open('Error de inicio de sesión, vuelva a intentar !!', 'Aceptar', {
+          duration: 3000
+        });
+      }
+    );
+  }
+
+  redirectToPasswordRecovery() {
+    this.router.navigate([]);
+  }
+
+  redirectToSignin() {
+    this.router.navigate(['/signup']);
   }
 }

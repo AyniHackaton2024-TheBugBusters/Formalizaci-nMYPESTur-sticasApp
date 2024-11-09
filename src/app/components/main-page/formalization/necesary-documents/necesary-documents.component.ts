@@ -14,15 +14,17 @@ import {NgForOf, NgIf} from '@angular/common';
   styleUrl: './necesary-documents.component.css'
 })
 export class NecesaryDocumentsComponent {
-  documentos = [
-    { nombre: 'Declaración Jurada', enlaceDescarga: '/assets/plantillas/declaracion-jurada.pdf' },
-    { nombre: 'Licencia Comercial', enlaceDescarga: '/assets/plantillas/licencia-comercial.pdf' },
-    { nombre: 'RUC (Registro Único de Contribuyente)', enlaceDescarga: '/assets/plantillas/ruc.pdf' }
-  ];
-  isIdentityValidated = false; // Change based on actual validation state
+  isIdentityValidated = false;
 
-  ngOnInit() {
-    // Logic to check if identity has been validated
-    // this.isIdentityValidated = checkIdentityValidation();
-  }
+  // Documentos y registros requeridos para la formalización
+  requisitos = {
+    documentos: [
+      { nombre: 'Declaración Jurada de Condiciones Mínimas', enlaceDescarga: '/assets/docs/declaracion-jurada.pdf' },
+      { nombre: 'Plan de Negocio o Estrategia Comercial', enlaceDescarga: '/assets/docs/plan-negocio.pdf' }
+    ],
+    registros: [
+      { nombre: 'Registro Único de Contribuyentes (RUC)', enlaceConsulta: 'https://www.sunat.gob.pe/' },
+      { nombre: 'Inscripción en Directorio Nacional de Prestadores de Servicios Turísticos', enlaceConsulta: 'https://turismoin.gob.pe/' }
+    ]
+  };
 }

@@ -1,28 +1,31 @@
-<div class="flex items-center justify-center h-screen bg-gray-100">
-  <div class="w-full max-w-xs bg-white p-8 rounded-lg shadow-md">
-    <h2 class="text-2xl font-bold mb-4 text-center">Iniciar Sesión</h2>
+<div class=" flex justify-center items-center h-screen">
+  <div class="w-1/2 h-screen hidden lg:block">
+    <img src="https://i.imgur.com/Gfsl9gC.png" alt="Placeholder Image" class="object-cover w-full h-full">
+  </div>
+  <div class="lg:p-36 md:p-52 sm:p-20 p-8 w-full lg:w-1/2">
+    <h1 class="text-2xl font-semibold mb-4">Login</h1>
     <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-      <mat-form-field appearance="fill" class="w-full mb-4">
-        <mat-label>Usuario</mat-label>
-        <input matInput formControlName="username" placeholder="Ingresa tu usuario" required />
-        <mat-error *ngIf="loginForm.get('username')?.hasError('required')">
-          El nombre de usuario es obligatorio
-        </mat-error>
-      </mat-form-field>
-
-      <mat-form-field appearance="fill" class="w-full mb-4">
-        <mat-label>Contraseña</mat-label>
-        <input matInput formControlName="password" placeholder="Ingresa tu contraseña" type="password" required />
-        <mat-error *ngIf="loginForm.get('password')?.hasError('required')">
-          La contraseña es obligatoria
-        </mat-error>
-      </mat-form-field>
-
-      <button mat-raised-button color="primary" class="w-full" [disabled]="loginForm.invalid">Iniciar Sesión</button>
+      <div class="mb-4">
+        <label for="ruc" class="block text-gray-600">RUC</label>
+        <input type="text" id="ruc" formControlName="ruc" class="w-full border border-gray-300 rounded-md py-2 px-3 focus:outline-none focus:border-blue-500" autocomplete="off">
+        <mat-error *ngIf="loginForm.get('ruc')?.hasError('required')">RUC is required</mat-error>
+      </div>
+      <div class="mb-4">
+        <label for="password" class="block text-gray-800">Password</label>
+        <input type="password" id="password" formControlName="password" class="w-full border border-gray-300 rounded-md py-2 px-3 focus:outline-none focus:border-blue-500" autocomplete="off">
+        <mat-error *ngIf="loginForm.get('password')?.hasError('required')">Password is required</mat-error>
+      </div>
+      <div class="mb-4 flex items-center">
+        <input type="checkbox" id="remember" formControlName="remember" class="text-red-500">
+        <label for="remember" class="text-green-900 ml-2">Remember Me</label>
+      </div>
+      <div class="mb-6 text-blue-500">
+        <a href="#" class="hover:underline">Forgot Password?</a>
+      </div>
+      <button type="submit" class="bg-red-500 hover:bg-blue-600 text-white font-semibold rounded-md py-2 px-4 w-full" [disabled]="loginForm.invalid">Login</button>
     </form>
-
-    <div class="text-center mt-4">
-      <a routerLink="/register" class="text-blue-500 hover:underline">Crear una cuenta</a>
+    <div class="mt-6 text-green-500 text-center">
+      <a href="#" class="hover:underline">Sign up Here</a>
     </div>
   </div>
 </div>

@@ -1,8 +1,5 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import {MatButtonModule} from '@angular/material/button';
-import {MatCardModule} from '@angular/material/card';
-import {FormsModule} from '@angular/forms';
 import {SidebarComponent} from './layout/main-page/sidebar/sidebar.component';
 
 @Component({
@@ -10,7 +7,8 @@ import {SidebarComponent} from './layout/main-page/sidebar/sidebar.component';
   standalone: true,
   templateUrl: './app.component.html',
   imports: [
-    RouterOutlet
+    RouterOutlet,
+    SidebarComponent
   ],
   styleUrl: './app.component.css'
 })
