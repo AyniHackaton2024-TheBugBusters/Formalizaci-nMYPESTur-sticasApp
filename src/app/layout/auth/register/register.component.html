@@ -1,1 +1,38 @@
-<p>register works!</p>
+<div class="flex items-center justify-center h-screen bg-gray-100">
+  <div class="w-full max-w-md bg-white p-8 rounded-lg shadow-md">
+    <h2 class="text-2xl font-bold mb-4 text-center">Registrar Cuenta</h2>
+    <form (ngSubmit)="onSubmit()" #registerForm="ngForm">
+      <mat-form-field appearance="fill" class="w-full mb-4">
+        <mat-label>Nombre Completo</mat-label>
+        <input matInput id="nombre_completo" required [(ngModel)]="nombre_completo" name="nombre_completo" />
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="w-full mb-4">
+        <mat-label>RUC</mat-label>
+        <input matInput id="ruc" required [(ngModel)]="ruc" name="ruc" />
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="w-full mb-4">
+        <mat-label>Email</mat-label>
+        <input matInput type="email" id="email" required [(ngModel)]="email" name="email" />
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="w-full mb-4">
+        <mat-label>DNI</mat-label>
+        <input matInput id="dni" required [(ngModel)]="dni" name="dni" />
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="w-full mb-4">
+        <mat-label>Contraseña</mat-label>
+        <input matInput type="password" id="password" required [(ngModel)]="password" name="password" />
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="w-full mb-4">
+        <mat-label>Fecha de Nacimiento</mat-label>
+        <input matInput type="date" id="fecha_nacimiento" required [(ngModel)]="fecha_nacimiento" name="fecha_nacimiento" />
+      </mat-form-field>
+
+      <button mat-raised-button color="primary" class="w-full" [disabled]="registerForm.invalid">Registrar</button>
+    </form>
+  </div>
+</div>

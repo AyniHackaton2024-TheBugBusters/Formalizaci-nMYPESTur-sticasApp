@@ -3,10 +3,10 @@
     <h2 class="text-2xl font-bold mb-4 text-center">Iniciar Sesión</h2>
     <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
       <mat-form-field appearance="fill" class="w-full mb-4">
-        <mat-label>Usuario</mat-label>
-        <input matInput formControlName="username" placeholder="Ingresa tu usuario" required />
-        <mat-error *ngIf="loginForm.get('username')?.hasError('required')">
-          El nombre de usuario es obligatorio
+        <mat-label>RUC</mat-label>
+        <input matInput formControlName="ruc" placeholder="Ingresa tu ruc" required />
+        <mat-error *ngIf="loginForm.get('ruc')?.hasError('required')">
+          El ruc es obligatorio
         </mat-error>
       </mat-form-field>
 

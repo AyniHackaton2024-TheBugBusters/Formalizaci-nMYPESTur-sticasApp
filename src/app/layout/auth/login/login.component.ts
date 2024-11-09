@@ -1,9 +1,10 @@
-import { Component } from '@angular/core';
-import {CommonModule} from '@angular/common';
-import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
-import {MatButtonModule} from '@angular/material/button';
-import {MatInputModule} from '@angular/material/input';
-import {Router, RouterLink} from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { MatButtonModule } from '@angular/material/button';
+import { MatInputModule } from '@angular/material/input';
+import { Router, RouterLink } from '@angular/router';
+import { LoginService } from '../../../services/login-service/login.service';
 
 @Component({
   selector: 'app-login',
@@ -16,27 +17,33 @@ import {Router, RouterLink} from '@angular/router';
     RouterLink
   ],
   templateUrl: './login.component.html',
-  styleUrl: './login.component.css'
+  styleUrls: ['./login.component.css']
 })
-
-export class LoginComponent {
+export class LoginComponent implements OnInit {
   loginForm: FormGroup;
 
-  constructor(private fb: FormBuilder, private router: Router) {
+  constructor(private fb: FormBuilder, private loginService: LoginService, private router: Router) {}
+
+  ngOnInit(): void {
     this.loginForm = this.fb.group({
-      username: ['', Validators.required],
+      ruc: ['', Validators.required],
       password: ['', Validators.required]
     });
   }
 
   onSubmit() {
     if (this.loginForm.valid) {
-      // Aquí puedes manejar la lógica de autenticación
-      console.log('Usuario:', this.loginForm.value.username);
-      console.log('Contraseña:', this.loginForm.value.password);
-
-      // Ejemplo de redirección a otra página tras login exitoso
-      this.router.navigate(['/dashboard']);
+      const { ruc, password } = this.loginForm.value;
+      this.loginService.login(ruc, password).subscribe(response => {
+        localStorage.setItem('userId', response.userId);
+        localStorage.setItem('nombre_completo', response.nombre_completo);
+        localStorage.setItem('email', response.email);
+        localStorage.setItem('ruc', response.ruc);
+        localStorage.setItem('dni', response.dni);
+        this.router.navigate(['/dashboard']);
+      }, error => {
+        console.error('Error logging in', error);
+      });
     }
   }
 }
