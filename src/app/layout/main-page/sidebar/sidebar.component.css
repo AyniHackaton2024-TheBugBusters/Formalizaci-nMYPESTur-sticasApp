@@ -1,3 +1,17 @@
 .active {
   background-color: #4a5568;
 }
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  overflow-y: auto;
+  z-index: 1200;
+}
+
+.content {
+  margin-left: 15rem; /* Adjust based on the width of your sidebar */
+  width: calc(100% - 15rem);
+  overflow-y: auto;
+}
