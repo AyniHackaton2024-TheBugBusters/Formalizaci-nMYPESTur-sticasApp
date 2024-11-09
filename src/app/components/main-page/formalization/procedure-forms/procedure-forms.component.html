@@ -150,9 +150,6 @@
           {{ option.viewValue }}
         </mat-checkbox>
       </div>
-      <div *ngIf="multiboxSeleccionEquipamiento.invalid && multiboxSeleccionEquipamiento.touched" class="text-red-500">
-        Seleccionar al menos una opción es obligatorio.
-      </div>
       <br>
       <h4 class="font-semibold text-lg">Personal calificado (1) : </h4>
       <div *ngFor="let option of personal_calificado">
@@ -163,9 +160,6 @@
         </mat-checkbox>
       </div>
       <input formControlName="personalCalificado" placeholder="Total personal calificado" class="mt-2 p-2 border rounded w-full" />
-      <div *ngIf="multiboxSeleccionPersonal.invalid && multiboxSeleccionPersonal.touched" class="text-red-500">
-        Seleccionar al menos una opción es obligatorio.
-      </div>
     </form>
   </div>
 
