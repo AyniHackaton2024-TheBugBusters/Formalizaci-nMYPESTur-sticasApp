@@ -17,12 +17,6 @@
         <label for="departamento_provincia_distrito" class="block text-gray-700">Departamento/Provincia/Distrito</label>
         <input id="departamento_provincia_distrito" formControlName="departamento_provincia_distrito" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm" placeholder="Departamento/Provincia/Distrito" />
       </div>
-    </form>
-  </div>
-
-  <!-- Contenedor del Paso 2 -->
-  <div *ngIf="currentStep === 1">
-    <form [formGroup]="step2Form">
       <div class="mb-4">
         <label for="nombre_comercial" class="block text-gray-700">Nombre Comercial</label>
         <input id="nombre_comercial" formControlName="nombre_comercial" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm" placeholder="Nombre Comercial" />
@@ -31,16 +25,16 @@
         <label for="direccion" class="block text-gray-700">Dirección</label>
         <input id="direccion" formControlName="direccion" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm" placeholder="Dirección" />
       </div>
+    </form>
+  </div>
+
+  <!-- Contenedor del Paso 2 -->
+  <div *ngIf="currentStep === 1">
+    <form [formGroup]="step2Form">
       <div class="mb-4">
         <label for="departamento" class="block text-gray-700">Departamento</label>
         <input id="departamento" formControlName="departamento" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm" placeholder="Departamento" />
       </div>
-    </form>
-  </div>
-
-  <!-- Contenedor del Paso 3 -->
-  <div *ngIf="currentStep === 2">
-    <form [formGroup]="step3Form">
       <div class="mb-4">
         <label for="provincia" class="block text-gray-700">Provincia</label>
         <input id="provincia" formControlName="provincia" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm" placeholder="Provincia" />
@@ -53,16 +47,16 @@
         <label for="telefonos" class="block text-gray-700">Teléfonos</label>
         <input id="telefonos" formControlName="telefonos" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm" placeholder="Teléfonos" />
       </div>
-    </form>
-  </div>
-
-  <!-- Contenedor del Paso 4 -->
-  <div *ngIf="currentStep === 3">
-    <form [formGroup]="step4Form">
       <div class="mb-4">
         <label for="pagina_web" class="block text-gray-700">Página Web</label>
         <input id="pagina_web" formControlName="pagina_web" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm" placeholder="Página Web" />
       </div>
+    </form>
+  </div>
+
+  <!-- Contenedor del Paso 3 -->
+  <div *ngIf="currentStep === 2">
+    <form [formGroup]="step3Form">
       <div class="mb-4">
         <label for="redes_sociales" class="block text-gray-700">Redes Sociales</label>
         <input id="redes_sociales" formControlName="redes_sociales" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm" placeholder="Redes Sociales" />
@@ -71,12 +65,6 @@
         <label for="fecha_inicio_operaciones" class="block text-gray-700">Fecha de Inicio de Operaciones</label>
         <input id="fecha_inicio_operaciones" formControlName="fecha_inicio_operaciones" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm" placeholder="Fecha de Inicio de Operaciones" />
       </div>
-    </form>
-  </div>
-
-  <!-- Contenedor del Paso 5 -->
-  <div *ngIf="currentStep === 4">
-    <form [formGroup]="step5Form">
       <div class="mb-4">
         <label for="licencia_funcionamiento" class="block text-gray-700">Licencia de Funcionamiento</label>
         <input id="licencia_funcionamiento" formControlName="licencia_funcionamiento" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm" placeholder="Licencia de Funcionamiento" />
@@ -92,9 +80,9 @@
     </form>
   </div>
 
-  <!-- Contenedor del Paso 6 -->
-  <div *ngIf="currentStep === 5">
-    <form [formGroup]="step6Form">
+  <!-- Contenedor del Paso 4 -->
+  <div *ngIf="currentStep === 3">
+    <form [formGroup]="step4Form">
       <div class="mb-4">
         <label for="equipamiento" class="block text-gray-700">Equipamiento</label>
         <input id="equipamiento" formControlName="equipamiento" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm" placeholder="Equipamiento" />
@@ -107,12 +95,6 @@
         <label for="condiciones_digitales" class="block text-gray-700">Condiciones Digitales</label>
         <input id="condiciones_digitales" formControlName="condiciones_digitales" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm" placeholder="Condiciones Digitales" />
       </div>
-    </form>
-  </div>
-
-  <!-- Contenedor del Paso 7 -->
-  <div *ngIf="currentStep === 6">
-    <form [formGroup]="step7Form">
       <div class="mb-4">
         <label for="modalidad_turismo" class="block text-gray-700">Modalidad de Turismo</label>
         <input id="modalidad_turismo" formControlName="modalidad_turismo" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm" placeholder="Modalidad de Turismo" />
@@ -121,16 +103,16 @@
         <label for="tipo_turismo" class="block text-gray-700">Tipo de Turismo</label>
         <input id="tipo_turismo" formControlName="tipo_turismo" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm" placeholder="Tipo de Turismo" />
       </div>
+    </form>
+  </div>
+
+  <!-- Contenedor del Paso 5 -->
+  <div *ngIf="currentStep === 4">
+    <form [formGroup]="step5Form">
       <div class="mb-4">
         <label for="asociacion_turismo" class="block text-gray-700">Asociación de Turismo</label>
         <input id="asociacion_turismo" formControlName="asociacion_turismo" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm" placeholder="Asociación de Turismo" />
       </div>
-    </form>
-  </div>
-
-  <!-- Contenedor del Paso 8 -->
-  <div *ngIf="currentStep === 7">
-    <form [formGroup]="step8Form">
       <div class="mb-4">
         <label for="calificacion_calidad" class="block text-gray-700">Calificación de Calidad</label>
         <input id="calificacion_calidad" formControlName="calificacion_calidad" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm" placeholder="Calificación de Calidad" />
